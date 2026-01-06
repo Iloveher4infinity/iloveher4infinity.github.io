@@ -34,7 +34,30 @@
       padding: 30px 24px;
       box-shadow: 0 14px 35px rgba(255, 182, 193, 0.35);
     }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  background-image: url("https://pngimg.com/uploads/lily/lily_PNG12615.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: -1;
+}
 
+body::before {
+  top: 40px;
+  left: -40px;
+  transform: rotate(-15deg);
+}
+
+body::after {
+  bottom: 40px;
+  right: -40px;
+  transform: rotate(18deg);
+      }
     .flower {
       font-size: 1.6rem;
       margin-bottom: 10px;
