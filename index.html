@@ -34,18 +34,7 @@
       padding: 30px 24px;
       box-shadow: 0 14px 35px rgba(255, 182, 193, 0.35);
     }
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 220px;
-  height: 220px;
-  background-image: url("https://pngimg.com/uploads/lily/lily_PNG12615.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.12;
-  z-index: -1;
-}
+
 
 body::before {
   top: 40px;
@@ -79,6 +68,32 @@ body::after {
       font-size: 0.8rem;
       color: #b08a96;
     }
+    /* soft lily glow top & bottom */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,225,235,0.8) 30%,
+    rgba(255,190,210,0.5) 55%,
+    rgba(255,190,210,0) 75%);
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+body::before {
+  top: -120px;
+  left: -100px;
+}
+
+body::after {
+  bottom: -120px;
+  right: -100px;
+}
   </style>
 </head>
 
