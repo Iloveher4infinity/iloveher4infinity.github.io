@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Happy Place</title>
 
   <style>
@@ -13,12 +13,42 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #ffe4ef, #fff0f6);
       min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ffe6ef, #fff2f7);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 🌸 soft lily glow */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle,
+        rgba(255,255,255,0.9) 0%,
+        rgba(255,215,230,0.75) 30%,
+        rgba(255,185,205,0.5) 55%,
+        rgba(255,185,205,0) 75%);
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -140px;
+      left: -120px;
+    }
+
+    body::after {
+      bottom: -140px;
+      right: -120px;
     }
 
     .container {
@@ -26,74 +56,38 @@
       max-width: 420px;
       padding: 20px;
       text-align: center;
+      z-index: 1;
     }
 
     .card {
       background: #fff5fa;
       border-radius: 28px;
-      padding: 30px 24px;
-      box-shadow: 0 14px 35px rgba(255, 182, 193, 0.35);
+      padding: 34px 26px;
+      box-shadow: 0 18px 40px rgba(255, 170, 200, 0.35);
     }
 
-
-body::before {
-  top: 40px;
-  left: -40px;
-  transform: rotate(-15deg);
-}
-
-body::after {
-  bottom: 40px;
-  right: -40px;
-  transform: rotate(18deg);
-      }
     .flower {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
+      font-size: 1.7rem;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 1.5rem;
-      color: #d94c8a;
-      margin-bottom: 10px;
+      font-size: 1.55rem;
+      color: #d97c9a;
+      margin-bottom: 12px;
     }
 
     .subtitle {
       font-size: 0.95rem;
       color: #7a5a65;
+      line-height: 1.5;
     }
 
     footer {
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 0.8rem;
       color: #b08a96;
     }
-    /* soft lily glow top & bottom */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,225,235,0.8) 30%,
-    rgba(255,190,210,0.5) 55%,
-    rgba(255,190,210,0) 75%);
-  border-radius: 50%;
-  opacity: 0.6;
-  z-index: -1;
-}
-
-body::before {
-  top: -120px;
-  left: -100px;
-}
-
-body::after {
-  bottom: -120px;
-  right: -100px;
-}
   </style>
 </head>
 
@@ -101,13 +95,10 @@ body::after {
   <div class="container">
     <div class="card">
       <div class="flower">🌸</div>
-
       <h1>Hi, welcome to my happy place</h1>
-
       <p class="subtitle">
         This little corner exists just to feel good ✨
       </p>
-
       <footer>
         made with calm · joy · softness 🤍
       </footer>
