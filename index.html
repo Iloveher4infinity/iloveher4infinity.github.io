@@ -122,7 +122,11 @@ p {
 </head>
 
 <body>
-
+<!-- 🎶 BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+  
 <!-- 🌸 YOUR LILIES -->
 <img src="lily-top.png" class="lily top" alt="lily top">
 <img src="lily-bottom.png" class="lily bottom" alt="lily bottom">
@@ -136,6 +140,13 @@ p {
   <button class="btn no">NO 😼</button>
 </div>
 </div>
+<script>
+  const music = document.getElementById("bg-music");
 
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+</script>
+  
 </body>
 </html>
