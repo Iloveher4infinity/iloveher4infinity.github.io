@@ -143,12 +143,31 @@ p {
 <script>
   const music = document.getElementById("bg-music");
 
-music.volume = 0.25;
-  
+  music.volume = 0; // start silent 🎧
+
+  function fadeInMusic() {
+    let volume = 0;
+    const fade = setInterval(() => {
+      if (volume < 0.25) {
+        volume += 0.02;
+        music.volume = volume;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200); // smooth fade 💗
+  }
+
   document.addEventListener("click", () => {
     music.play();
+    fadeInMusic();
   }, { once: true });
-</script>
+
+  // EXTRA SAFETY: if song ever ends, restart 💞
+  music.addEventListener("ended", () => {
+    music.currentTime = 0;
+    music.play();
+  });
+    </script>
   
 </body>
 </html>
