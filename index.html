@@ -85,6 +85,39 @@ p {
 .lily.bottom {
   opacity: 0.5;
 }
+  /* 💖 YES / NO BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn.yes {
+  background: linear-gradient(135deg, #ff9ebc, #ffb6d5);
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 158, 188, 0.6);
+}
+
+.btn.no {
+  background: #ffe1ec;
+  color: #c26b88;
+  box-shadow: 0 6px 14px rgba(255, 182, 193, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  }
 </style>
 </head>
 
@@ -98,8 +131,10 @@ p {
 <div class="card">
   <div class="flower">🌸</div>
   <h1>Hii, welcome to my heart cutuu<br>You wanna go in?</h1>
-  <p>This little corner exists just to feel good ✨</p>
-  <div class="footer">made with calm · joy · softness 🤍</div>
+<div class="buttons">
+  <button class="btn yes">YES 💗</button>
+  <button class="btn no">NO 😼</button>
+</div>
 </div>
 
 </body>
