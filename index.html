@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <title>My Happy Place</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!-- 🌸 PRELOAD FLOWERS -->
+<link rel="preload" as="image" href="lily-top.png">
+<link rel="preload" as="image" href="lily-bottom.png">
 <style>
 * {
   margin: 0;
@@ -30,7 +32,8 @@ body {
   width: 280px;
   opacity: 0.9;
   z-index: 1;
-
+will-change: transform;
+  transform: translateZ(0);
   /* 💖 soft pink glow under lily */
   filter:
     drop-shadow(0 12px 25px rgba(255, 170, 200, 0.55))
