@@ -57,47 +57,72 @@
   position: relative;
 }
 
-.tears {
-  position: absolute;
-  top: 70px; /* adjust if needed */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 18px;
-}
 
 .tear {
   width: 10px;
   height: 18px;
   background: rgba(135, 206, 250, 0.9);
   border-radius: 50%;
-  animation: fall 1.6s infinite ease-in;
 }
 
 .tear:nth-child(2) {
   animation-delay: 0.8s;
 }
 
-@keyframes fall {
+
+  .doraemon-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.doraemon-face {
+  width: 120px;
+  display: block;
+}
+
+.tear {
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  background: rgba(135, 206, 250, 0.9);
+  border-radius: 50%;
+  animation: cry 1.6s infinite ease-in;
+}
+
+.tear-left {
+  top: 42px;
+  left: 38px;
+}
+
+.tear-right {
+  top: 42px;
+  right: 38px;
+}
+
+@keyframes cry {
   0% {
+    opacity: 0;
     transform: translateY(0);
+  }
+  20% {
     opacity: 1;
   }
   100% {
-    transform: translateY(30px);
     opacity: 0;
+    transform: translateY(22px);
   }
+}
     }
 </style>
 </head>
 
 <body>
- <div class="box">
-  <img src="images/doraemon.png" alt="Doraemon" class="no-doraemon">
-   <div class="tears">
-  <span class="tear"></span>
-  <span class="tear"></span>
-   </div>
+<div class="doraemon-wrap">
+  <img src="images/doraemon.png" class="doraemon-face">
+
+  <span class="tear tear-left"></span>
+  <span class="tear tear-right"></span>
+</div>
    <h1>Ouch 🐱</h1>
     <p>
   Noo?🥺 u don't wanna look inside my heart CUTU JII?<br>
