@@ -129,7 +129,11 @@ p {
   }
 </style>
 </head>
-
+<script>
+  function goYes() {
+    window.location.href = "yes.html";
+  }
+</script>
 <body>
 <!-- 🎶 BACKGROUND MUSIC -->
 <audio id="bg-music" src="love-song.mp3" loop></audio>
@@ -147,7 +151,7 @@ p {
 
   <h1>Hii, welcome to my heart cutuu<br>You wanna go in?</h1>
 <div class="buttons">
-  <button class="btn yes">YES 💗</button>
+  <button class="btn yes" onclick="goYes()">YES</button>
   <a href="no.html">
   <button class="btn no">NO 😼</button>
   </a>
