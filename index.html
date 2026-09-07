@@ -141,7 +141,23 @@ p {
 <body>
 <!-- 🎶 BACKGROUND MUSIC -->
 <audio id="bg-music" src="love-song.mp3" loop></audio>
-  
+  <script>
+const music = document.getElementById("bg-music");
+
+music.volume = 0.12;
+
+const savedTime = sessionStorage.getItem("musicTime");
+
+if (savedTime !== null) {
+    music.currentTime = parseFloat(savedTime);
+}
+
+music.play().catch(() => {
+    document.addEventListener("click", () => {
+        music.play();
+    }, { once: true });
+});
+  </script>
 <!-- 🌸 YOUR LILIES -->
 <img src="lily-top.png" class="lily top" alt="lily top">
 <img src="lily-bottom.png" class="lily bottom" alt="lily bottom">
