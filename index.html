@@ -130,7 +130,11 @@ p {
 </style>
 </head>
 <script>
-  function goYes() {
+  function goYES() {
+    const music = document.getElementById("bg-music");
+
+    sessionStorage.setItem("musicTime", music.currentTime);
+
     window.location.href = "yes.html";
   }
 </script>
@@ -168,8 +172,8 @@ Wanna go in my hearttt jii?🥹✨</h1>
   function fadeInMusic() {
     let volume = 0;
     const fade = setInterval(() => {
-      if (volume < 0.25) {
-        volume += 0.02;
+      if (volume < 0.12) {
+        volume += 0.01;
         music.volume = volume;
       } else {
         clearInterval(fade);
