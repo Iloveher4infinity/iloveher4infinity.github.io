@@ -6,6 +6,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+  /* 🌻 SUNFLOWER SHOWER */
+#sunflower-shower {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sunflower {
+    position: absolute;
+    top: -50px;
+    left: var(--left);
+    width: var(--size);
+    height: var(--size);
+    object-fit: contain;
+    opacity: var(--opacity);
+    animation: sunflowerFall var(--duration) linear var(--delay) infinite;
+}
+
+@keyframes sunflowerFall {
+    0% {
+        transform: translate3d(0, -60px, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate3d(var(--drift), 50vh, 0) rotate(180deg);
+    }
+
+    100% {
+        transform: translate3d(0, 110vh, 0) rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sunflower {
+        animation: none;
+    }
+}
 * {
   margin: 0;
   padding: 0;
@@ -66,7 +105,7 @@ p {
 </head>
 
 <body>
-
+<div id="sunflower-shower" aria-hidden="true"></div>
 <div class="card">
   <div class="character">
     <!-- replace image later -->
@@ -84,6 +123,47 @@ p {
 
   <button class="btn">Hold my hand forever🤍</button>
 </div>
+<script>
+const shower = document.getElementById("sunflower-shower");
 
+for (let i = 0; i < 30; i++) {
+    const flower = document.createElement("img");
+
+    flower.src = "sunflower.png";
+    flower.className = "sunflower";
+
+    flower.style.setProperty(
+        "--left",
+        Math.random() * 100 + "vw"
+    );
+
+    flower.style.setProperty(
+        "--size",
+        12 + Math.random() * 14 + "px"
+    );
+
+    flower.style.setProperty(
+        "--duration",
+        7 + Math.random() * 6 + "s"
+    );
+
+    flower.style.setProperty(
+        "--delay",
+        -Math.random() * 12 + "s"
+    );
+
+    flower.style.setProperty(
+        "--drift",
+        -60 + Math.random() * 120 + "px"
+    );
+
+    flower.style.setProperty(
+        "--opacity",
+        0.55 + Math.random() * 0.4
+    );
+
+    shower.appendChild(flower);
+}
+</script>
 </body>
 </html>
