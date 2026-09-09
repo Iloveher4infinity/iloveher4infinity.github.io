@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>A Little Birthday Surprise 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffe6ee, #fff4f8);
+  overflow-x: hidden;
+  text-align: center;
+  color: #8a6f78;
+}
+
+/* ---------- MAIN SCREEN ---------- */
+
+#cake-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  transition: opacity 0.8s ease;
+}
+
+.cake {
+  width: min(280px, 75vw);
+  max-height: 330px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(255, 150, 190, 0.35));
+  animation: cakeFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.blow-text {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #d9799f;
+}
+
+.sub-text {
+  margin-top: 7px;
+  font-size: 14px;
+  color: #b28c98;
+}
+
+.countdown {
+  margin-top: 18px;
+  font-size: 55px;
+  font-weight: 800;
+  color: #e88aac;
+  min-height: 70px;
+}
+
+.blow-hint {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #b59aa3;
+}
+
+/* ---------- BIRTHDAY SCREEN ---------- */
+
+#birthday-screen {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 20px;
+  animation: birthdayAppear 1s ease forwards;
+}
+
+@keyframes birthdayAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.birthday-title {
+  font-size: clamp(42px, 12vw, 85px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: #df729d;
+  text-shadow:
+    0 5px 15px rgba(255, 150, 190, 0.35);
+  margin-top: 30px;
+}
+
+.birthday-subtitle {
+  margin-top: 18px;
+  font-size: 17px;
+  color: #a77f8b;
+}
+
+/* ---------- STICKER BOARD ---------- */
+
+.gifts-title {
+  margin-top: 55px;
+  font-size: 25px;
+  color: #d9799f;
+}
+
+.gifts-subtitle {
+  margin-top: 7px;
+  font-size: 13px;
+  color: #b59aa3;
+}
+
+.sticker-board {
+  max-width: 650px;
+  margin: 25px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.sticker {
+  border: none;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 25px;
+  padding: 22px 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 170, 200, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sticker:hover {
+  transform: translateY(-7px) rotate(-2deg) scale(1.04);
+  box-shadow: 0 15px 30px rgba(255, 150, 190, 0.35);
+}
+
+.sticker:active {
+  transform: scale(0.95);
+}
+
+.sticker-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sticker-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #a96f83;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 18px;
+  pointer-events: none;
+  animation: heartUp linear forwards;
+  z-index: 0;
+}
+
+@keyframes heartUp {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 500px) {
+
+  .sticker-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .sticker {
+    padding: 18px 8px;
+  }
+
+  .sticker-icon {
+    font-size: 40px;
+  }
+
+  .birthday-title {
+    margin-top: 15px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="bg-music" src="love-song.mp3" loop></audio>
+
+
+<!-- ================= CAKE SCREEN ================= -->
+
+<section id="cake-screen">
+
+  <img src="Cake.png" class="cake" alt="Birthday cake">
+
+  <div class="blow-text">
+    Blow in... 🕯️
+  </div>
+
+  <div class="sub-text">
+    Make a little birthday wish first 💗
+  </div>
+
+  <div class="countdown" id="countdown">
+    3
+  </div>
+
+  <div class="blow-hint">
+    get readyyy...
+  </div>
+
+</section>
+
+
+<!-- ================= BIRTHDAY SCREEN ================= -->
+
+<section id="birthday-screen">
+
+  <div class="birthday-title">
+    HAPPY<br>
+    BIRTHDAY 🎂
+  </div>
+
+  <div class="birthday-subtitle">
+    May your day be as lovely as your smile 💗✨
+  </div>
+
+
+  <div class="gifts-title">
+    A few little surprises for you 🎀
+  </div>
+
+  <div class="gifts-subtitle">
+    Tap one... you never know what you'll find 👀
+  </div>
+
+
+  <div class="sticker-board">
+
+    <button class="sticker" onclick="openGift('camera')">
+      <span class="sticker-icon">📸</span>
+      <span class="sticker-name">Camera</span>
+    </button>
+
+    <button class="sticker" onclick="openGift('letter')">
+      <span class="sticker-icon">💌</span>
+      <span class="sticker-name">Letter</span>
+    </button>
+
+    <button class="sticker" onclick="openGift('cake')">
+      <span class="sticker-icon">🎂</span>
+      <span class="sticker-name">Cake</span>
+    </button>
+
+    <button class="sticker" onclick="openGift('flower')">
+      <span class="sticker-icon">🌷</span>
+      <span class="sticker-name">Flowers</span>
+    </button>
+
+    <button class="sticker" onclick="openGift('gift')">
+      <span class="sticker-icon">🎁</span>
+      <span class="sticker-name">Gift</span>
+    </button>
+
+    <button class="sticker" onclick="openGift('memory')">
+      <span class="sticker-icon">🧸</span>
+      <span class="sticker-name">Memory</span>
+    </button>
+
+  </div>
+
+</section>
+
+
+<script>
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const music = document.getElementById("bg-music");
+
+music.volume = 0.12;
+
+const savedTime = sessionStorage.getItem("musicTime");
+
+if (savedTime !== null) {
+  music.currentTime = parseFloat(savedTime);
+}
+
+music.play().catch(() => {
+
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+
+});
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const countdown = document.getElementById("countdown");
+
+const cakeScreen = document.getElementById("cake-screen");
+
+const birthdayScreen = document.getElementById("birthday-screen");
+
+let numbers = ["3", "2", "1"];
+
+let index = 0;
+
+countdown.textContent = numbers[index];
+
+const countdownTimer = setInterval(() => {
+
+  index++;
+
+  if (index < numbers.length) {
+
+    countdown.textContent = numbers[index];
+
+  } else {
+
+    clearInterval(countdownTimer);
+
+    countdown.textContent = "🎉";
+
+    setTimeout(() => {
+
+      cakeScreen.style.opacity = "0";
+
+      setTimeout(() => {
+
+        cakeScreen.style.display = "none";
+
+        birthdayScreen.style.display = "block";
+
+        createHearts();
+
+      }, 800);
+
+    }, 700);
+
+  }
+
+}, 1000);
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+function createHearts() {
+
+  setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["💗", "💖", "💕", "💓", "🌸", "✨"];
+
+    heart.textContent =
+      hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+      Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+      5 + Math.random() * 5 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+
+  }, 700);
+
+}
+
+
+/* =========================================
+   STICKER BUTTONS
+========================================= */
+
+function openGift(type) {
+
+  if (type === "camera") {
+    alert("📸 A camera surprise is waiting...");
+  }
+
+  else if (type === "letter") {
+    alert("💌 A special letter is waiting...");
+  }
+
+  else if (type === "cake") {
+    alert("🎂 Make another wishhh!");
+  }
+
+  else if (type === "flower") {
+    alert("🌷 A little flower surprise...");
+  }
+
+  else if (type === "gift") {
+    alert("🎁 Your gift is still wrapped 👀");
+  }
+
+  else if (type === "memory") {
+    alert("🧸 A tiny memory is waiting...");
+  }
+
+}
+
+</script>
+
+</body>
+</html>
