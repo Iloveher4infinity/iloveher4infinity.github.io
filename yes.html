@@ -187,11 +187,21 @@ music.play().catch(() => {
   }, { once: true });
 });
     function goToHold() {
-  music.pause();
-  music.currentTime = 0;
+  const bgMusic = document.getElementById("bg-music");
+  if (bgMusic) {
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
+    bgMusic.removeAttribute('src'); // Completely unloads the audio stream
+    bgMusic.load();
+  }
   sessionStorage.removeItem("musicTime");
-  window.location.href = "hold.html";
+
+  // Tiny delay to give the phone audio engine time to cut off
+  setTimeout(() => {
+    window.location.href = "hold.html";
+  }, 100);
     }
+    
   </script>
 </body>
 </html>
