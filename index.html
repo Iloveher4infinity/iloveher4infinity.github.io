@@ -104,6 +104,8 @@ p {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  text-decoration: none;
+display: inline-block;
 }
 
 .btn.yes {
@@ -129,20 +131,9 @@ p {
   }
 </style>
 </head>
-<script>
-  function goYES() {
-    const music = document.getElementById("bg-music");
-
-    sessionStorage.setItem("musicTime", music.currentTime);
-
-    window.location.href = "yes.html";
-  }
-</script>
 <body>
-  <script>
 <!-- 🎶 BACKGROUND MUSIC -->
 <audio id="bg-music" src="love-song.mp3" loop></audio>
-  </script>
 <!-- 🌸 YOUR LILIES -->
 <img src="lily-top.png" class="lily top" alt="lily top">
 <img src="lily-bottom.png" class="lily bottom" alt="lily bottom">
@@ -159,7 +150,10 @@ HAPPIESTTEST BIRTHDAYYIEEEE MAYAAAA🎂🎀
 welcome to my heart💗
 Wanna go in my hearttt jii?🥹✨</h1>
 <div class="buttons">
-  <button class="btn yes" onclick="goYES()">YES</button>
+  <a href="yes.html" class="btn yes"
+   onclick="sessionStorage.setItem('musicTime', document.getElementById('bg-music').currentTime)">
+   YES
+  </a>
   <a href="no.html">
   <button class="btn no">NO 😼</button>
   </a>
