@@ -124,7 +124,7 @@ p {
     and choosing meee.
   </p>
 
-<button class="btn" onclick="window.location.href='hold.html'">
+<button class="btn" onclick="goToHold()">
   Hold my hand forever🤍
 </button>
 </div>
@@ -186,6 +186,12 @@ music.play().catch(() => {
     music.play();
   }, { once: true });
 });
+    function goToHold() {
+  music.pause();
+  music.currentTime = 0;
+  sessionStorage.removeItem("musicTime");
+  window.location.href = "hold.html";
+    }
   </script>
 </body>
 </html>
