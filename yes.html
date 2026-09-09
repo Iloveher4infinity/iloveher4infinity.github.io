@@ -108,7 +108,8 @@ p {
 
 <body>
 <div id="sunflower-shower" aria-hidden="true"></div>
-<div class="card">
+<audio id="bg-music" src="love-song.mp3" loop></audio>
+  <div class="card">
   <div class="character">
     <!-- replace image later -->
     <img src="images/happy.png" alt="Happy">
@@ -167,5 +168,22 @@ for (let i = 0; i < 30; i++) {
     shower.appendChild(flower);
 }
 </script>
+  <script>
+const music = document.getElementById("bg-music");
+
+music.volume = 0.12;
+
+const savedTime = sessionStorage.getItem("musicTime");
+
+if (savedTime !== null) {
+  music.currentTime = parseFloat(savedTime);
+}
+
+music.play().catch(() => {
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+});
+  </script>
 </body>
 </html>
