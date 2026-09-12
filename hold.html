@@ -75,8 +75,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: numPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  }
 
 @keyframes numPop {
   0% { transform: scale(0.5); opacity: 0; }
@@ -354,44 +354,27 @@ const cakeScreen = document.getElementById("cake-screen");
 const birthdayScreen = document.getElementById("birthday-screen");
 
 let numbers = ["3", "2", "1"];
-
+let numbers = ["3", "2", "1", "🎉"];
 let index = 0;
 
-countdown.textContent = numbers[index];
+countdown.textContent = numbers[0];
 
 const countdownTimer = setInterval(() => {
-
   index++;
 
   if (index < numbers.length) {
-    countdown.style.animation = "none";
-    void countdown.offsetWidth;
     countdown.textContent = numbers[index];
-    countdown.style.animation = "numPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)";
   } else {
-  
     clearInterval(countdownTimer);
-
-    countdown.textContent = "🎉";
-
     setTimeout(() => {
-
       cakeScreen.style.opacity = "0";
-
       setTimeout(() => {
-
         cakeScreen.style.display = "none";
-
         birthdayScreen.style.display = "block";
-
         createHearts();
-
       }, 800);
-
     }, 700);
-
   }
-
 }, 1000);
 
 
