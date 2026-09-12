@@ -225,7 +225,7 @@ body {
 
 
 <body>
-
+<audio id="birthday-music" src="birthday-song.mp3" loop></audio>
 <!-- ================= CAKE SCREEN ================= -->
 
 <section id="cake-screen">
@@ -316,26 +316,17 @@ body {
 /* =========================================
    MUSIC
 ========================================= */
+const birthdayMusic = document.getElementById("birthday-music");
 
-const music = document.getElementById("bg-music");
-
-music.volume = 0.12;
-
-const savedTime = sessionStorage.getItem("musicTime");
-
-if (savedTime !== null) {
-  music.currentTime = parseFloat(savedTime);
+if (birthdayMusic) {
+  birthdayMusic.volume = 0.12;
+  birthdayMusic.play().catch(() => {
+    document.addEventListener("click", () => {
+      birthdayMusic.play();
+    }, { once: true });
+  });
 }
-
-music.play().catch(() => {
-
-  document.addEventListener("click", () => {
-    music.play();
-  }, { once: true });
-
-});
-
-
+  
 /* =========================================
    COUNTDOWN
 ========================================= */
