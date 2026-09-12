@@ -292,36 +292,36 @@ body {
 
   <div class="sticker-board">
 
-    <button class="sticker" onclick="openGift('camera')">
-      <span class="sticker-icon">📸</span>
-      <span class="sticker-name">Camera</span>
-    </button>
+        <button class="sticker" onclick="openPage('blessing.html')">
+          <img src="blessing.png" alt="You My Blessing" class="sticker-img">
+          <span class="sticker-name">You My Blessing 🧿</span>
+        </button>
 
-    <button class="sticker" onclick="openGift('letter')">
-      <span class="sticker-icon">💌</span>
-      <span class="sticker-name">Letter</span>
-    </button>
+        <button class="sticker" onclick="openPage('letter.html')">
+          <img src="letter.png" alt="Letter" class="sticker-img">
+          <span class="sticker-name">Letter 💌</span>
+        </button>
 
-    <button class="sticker" onclick="openGift('cake')">
-      <span class="sticker-icon">🎂</span>
-      <span class="sticker-name">Cake</span>
-    </button>
+        <button class="sticker" onclick="openPage('cake-page.html')">
+          <img src="cake-sticker.png" alt="Cake" class="sticker-img">
+          <span class="sticker-name">Cake 🎂</span>
+        </button>
 
-    <button class="sticker" onclick="openGift('flower')">
-      <span class="sticker-icon">🌷</span>
-      <span class="sticker-name">Flowers</span>
-    </button>
+        <button class="sticker" onclick="openPage('flower.html')">
+          <img src="flower.png" alt="Flowers" class="sticker-img">
+          <span class="sticker-name">Flowers 🌷</span>
+        </button>
 
-    <button class="sticker" onclick="openGift('gift')">
-      <span class="sticker-icon">🎁</span>
-      <span class="sticker-name">Gift</span>
-    </button>
+        <button class="sticker" onclick="openPage('gift.html')">
+          <img src="gift.png" alt="Gift" class="sticker-img">
+          <span class="sticker-name">Gift 🎁</span>
+        </button>
 
-    <button class="sticker" onclick="openGift('memory')">
-      <span class="sticker-icon">🧸</span>
-      <span class="sticker-name">Memory</span>
-    </button>
-
+        <button class="sticker" onclick="openPage('memory.html')">
+          <img src="memory.png" alt="Memory" class="sticker-img">
+          <span class="sticker-name">Memory 🧸</span>
+        </button>
+    
   </div>
 
 </section>
@@ -433,31 +433,9 @@ function createHearts() {
    STICKER BUTTONS
 ========================================= */
 
-function openGift(type) {
-
-  if (type === "camera") {
-    alert("📸 A camera surprise is waiting...");
-  }
-
-  else if (type === "letter") {
-    alert("💌 A special letter is waiting...");
-  }
-
-  else if (type === "cake") {
-    alert("🎂 Make another wishhh!");
-  }
-
-  else if (type === "flower") {
-    alert("🌷 A little flower surprise...");
-  }
-
-  else if (type === "gift") {
-    alert("🎁 Your gift is still wrapped 👀");
-  }
-
-  else if (type === "memory") {
-    alert("🧸 A tiny memory is waiting...");
-  }
+function openPage(pageUrl) {
+  window.location.href = pageUrl;
+}
 
 }
 
