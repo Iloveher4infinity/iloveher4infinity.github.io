@@ -310,14 +310,22 @@
       font-size: 18px;
       pointer-events: none;
       animation: heartUp linear forwards;
-      z-index: 0;
+      z-index: 999;
     }
 
     @keyframes heartUp {
-      from { transform: translateY(0) rotate(0deg); opacity: 0; }
-      15% { opacity: 0.7; }
-      to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
-    }
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+      }
+      }
   </style>
 </head>
 <body>
@@ -397,7 +405,7 @@
     }
 
     // --- 2. Countdown Engine ---
-    const countdownEl = document.getElementById("countdown");
+        const countdownEl = document.getElementById("countdown");
     const cakeScreen = document.getElementById("cake-screen");
     const birthdayScreen = document.getElementById("birthday-screen");
 
@@ -409,7 +417,7 @@
 
       if (index < numbers.length) {
         countdownEl.classList.remove("pop-anim");
-        void countdownEl.offsetWidth; // Force CSS reflow to re-trigger pop
+        void countdownEl.offsetWidth;
         countdownEl.textContent = numbers[index];
         countdownEl.classList.add("pop-anim");
       } else {
@@ -421,29 +429,31 @@
           setTimeout(() => {
             cakeScreen.style.display = "none";
             birthdayScreen.style.display = "block";
+            birthdayScreen.style.opacity = "1";
+
+            // Starts floating hearts immediately when birthday screen shows
             createHearts();
-          }, 800);
-        }, 700);
+          }, 700);
+        }, 600);
       }
     }, 1000);
 
-    // --- 3. Floating Hearts ---
     function createHearts() {
       setInterval(() => {
         const heart = document.createElement("div");
         heart.className = "heart";
-        const heartIcons = ["💖", "💗", "🌸", "✨", "🤍"];
+        const heartIcons = ["💖", "💗", "🌸", "✨", "🤍", "🎀"];
         heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-        heart.style.left = Math.random() * 95 + "vw";
-        heart.style.animationDuration = (4.5 + Math.random() * 3) + "s";
+        heart.style.left = Math.random() * 92 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        heart.style.fontSize = (16 + Math.random() * 10) + "px";
         document.body.appendChild(heart);
 
         setTimeout(() => {
           heart.remove();
-        }, 7500);
-      }, 450);
+        }, 7000);
+      }, 400);
     }
-
     // --- 4. Navigation ---
     function openPage(pageUrl) {
       window.location.href = pageUrl;
