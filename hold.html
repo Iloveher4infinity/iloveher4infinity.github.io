@@ -183,80 +183,6 @@
     .sticker-rot-4 { transform: rotate(7deg); }
     .sticker-rot-5 { transform: rotate(4deg); }
     .sticker-rot-6 { transform: rotate(-5deg); }
-    
-    /* ==================== STICKER BOARD ==================== */
-    .gifts-title {
-      margin-top: 30px;
-      font-size: 22px;
-      color: #d3799f;
-      font-weight: 700;
-    }
-
-    .gifts-subtitle {
-      margin-top: 5px;
-      font-size: 13px;
-      color: #b59aa3;
-    }
-
-    .sticker-board {
-      max-width: 450px;
-      margin: 25px auto 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      padding: 5px;
-    }
-
-        .sticker {
-      border: none;
-      background: transparent;
-      padding: 10px 5px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-      }
-
-    .sticker:active {
-      transform: scale(0.95);
-    }
-
-    .sticker-img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      display: block;
-      margin-bottom: 8px;
-      filter: drop-shadow(0 6px 12px rgba(235, 110, 155, 0.3));
-    /* ==================== STICKER BOARD ==================== */
-    .gifts-title {
-      margin-top: 25px;
-      font-size: 20px;
-      color: #d3799f;
-      font-weight: 700;
-    }
-
-    .gifts-subtitle {
-      margin-top: 5px;
-      font-size: 13px;
-      color: #b59aa3;
-    }
-
-    .sticker-board {
-      width: 100%;
-      max-width: 350px;
-      margin: 25px auto 40px auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Exactly 2 big columns */
-      column-gap: 25px;
-      row-gap: 30px;
-      justify-items: center;
-      align-items: center;
-      padding: 0 10px;
-    }
 
     .sticker {
       border: none;
@@ -303,29 +229,34 @@
     .sticker-rot-5 { transform: rotate(4deg); }
     .sticker-rot-6 { transform: rotate(-6deg); }
 
-    /* ==================== FLOATING HEARTS ==================== */
+        /* ==================== FLOATING HEARTS ==================== */
     .heart {
       position: fixed;
-      bottom: -30px;
-      font-size: 18px;
+      bottom: -40px;
       pointer-events: none;
-      animation: heartUp linear forwards;
-      z-index: 999;
+      user-select: none;
+      animation: heartFlyUp linear forwards;
+      z-index: 9999;
+      display: inline-block;
     }
 
-    @keyframes heartUp {
+    @keyframes heartFlyUp {
       0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) scale(0.6) rotate(0deg);
         opacity: 0;
       }
-      15% {
+      10% {
+        opacity: 0.9;
+        transform: translateY(-50px) scale(1) rotate(5deg);
+      }
+      90% {
         opacity: 0.85;
       }
       100% {
-        transform: translateY(-110vh) rotate(25deg);
+        transform: translateY(-115vh) scale(1.1) rotate(25deg);
         opacity: 0;
       }
-      }
+    }
   </style>
 </head>
 <body>
@@ -438,22 +369,30 @@
       }
     }, 1000);
 
-    function createHearts() {
-      setInterval(() => {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        const heartIcons = ["💖", "💗", "🌸", "✨", "🤍", "🎀"];
-        heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-        heart.style.left = Math.random() * 92 + "vw";
-        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-        heart.style.fontSize = (16 + Math.random() * 10) + "px";
-        document.body.appendChild(heart);
+  function createHearts() {
+  const heartIcons = ["💖", "💗", "🌸", "✨", "🤍", "🎀", "✨", "💕"];
+  
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+    
+    // Spread across the entire width of the phone (3% to 92%)
+    const randomLeft = Math.floor(Math.random() * 89) + 3;
+    heart.style.left = randomLeft + "vw";
+    
+    // Random sizes and floating speeds
+    const randomDuration = (3.5 + Math.random() * 3).toFixed(1);
+    heart.style.animationDuration = randomDuration + "s";
+    heart.style.fontSize = (16 + Math.floor(Math.random() * 12)) + "px";
+    
+    document.body.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 7000);
-      }, 400);
-    }
+    setTimeout(() => {
+      heart.remove();
+    }, 6500);
+  }, 350);
+  }
     // --- 4. Navigation ---
     function openPage(pageUrl) {
       window.location.href = pageUrl;
