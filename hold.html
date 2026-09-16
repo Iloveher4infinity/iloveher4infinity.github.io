@@ -231,19 +231,77 @@
       display: block;
       margin-bottom: 8px;
       filter: drop-shadow(0 6px 12px rgba(235, 110, 155, 0.3));
-      transition: transform 0.2s ease;
-    }
-
-    .sticker:active .sticker-img {
-      transform: scale(0.9);
-    }
-    
-
-    .sticker-name {
-      font-size: 13px;
+    /* ==================== STICKER BOARD ==================== */
+    .gifts-title {
+      margin-top: 25px;
+      font-size: 20px;
+      color: #d3799f;
       font-weight: 700;
-      color: #a04f83;
     }
+
+    .gifts-subtitle {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #b59aa3;
+    }
+
+    .sticker-board {
+      width: 100%;
+      max-width: 350px;
+      margin: 25px auto 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Exactly 2 big columns */
+      column-gap: 25px;
+      row-gap: 30px;
+      justify-items: center;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .sticker {
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sticker:active {
+      transform: scale(0.9) !important;
+    }
+
+    /* BIG CUTE STICKER IMAGES */
+    .sticker-img {
+      width: 130px;
+      height: 130px;
+      max-width: 38vw;
+      max-height: 38vw;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 8px 16px rgba(230, 110, 150, 0.28));
+    }
+
+    /* Small cute text below each sticker */
+    .sticker-name {
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #9f4b7a;
+      white-space: nowrap;
+    }
+
+    /* Angles matching your picture */
+    .sticker-rot-1 { transform: rotate(7deg); }
+    .sticker-rot-2 { transform: rotate(-5deg); }
+    .sticker-rot-3 { transform: rotate(-4deg); }
+    .sticker-rot-4 { transform: rotate(6deg); }
+    .sticker-rot-5 { transform: rotate(4deg); }
+    .sticker-rot-6 { transform: rotate(-6deg); }
 
     /* ==================== FLOATING HEARTS ==================== */
     .heart {
@@ -294,7 +352,6 @@
 
     <!-- STICKER BOARD -->
     <div class="sticker-board">
-        <div class="sticker-board">
       <button class="sticker sticker-rot-1" onclick="openPage('blessing.html')">
         <img src="blessing.png" alt="You My Blessing" class="sticker-img" />
         <span class="sticker-name">You My Blessing 🧿</span>
@@ -324,7 +381,7 @@
         <img src="memory.png" alt="Memory" class="sticker-img" />
         <span class="sticker-name">Memory 🧸</span>
       </button>
-        </div>
+    </div>
   </section>
 
   <script>
