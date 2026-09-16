@@ -116,7 +116,74 @@
       font-size: 16px;
       color: #a77f8b;
     }
+    /* ==================== STICKER BOARD ==================== */
+    .gifts-title {
+      margin-top: 25px;
+      font-size: 21px;
+      color: #d3799f;
+      font-weight: 700;
+    }
 
+    .gifts-subtitle {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #b59aa3;
+    }
+
+    .sticker-board {
+      max-width: 380px;
+      margin: 25px auto 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      row-gap: 30px;
+      padding: 10px;
+    }
+
+    .sticker {
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sticker:active {
+      transform: scale(0.88) !important;
+    }
+
+    .sticker-img {
+      width: 105px;
+      height: 105px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 8px 14px rgba(230, 110, 150, 0.28));
+      transition: transform 0.25s ease;
+    }
+
+    .sticker-name {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #9f4b7a;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Exact Rotations Matching Your Screenshot */
+    .sticker-rot-1 { transform: rotate(8deg); }
+    .sticker-rot-2 { transform: rotate(-6deg); }
+    .sticker-rot-3 { transform: rotate(-3deg); }
+    .sticker-rot-4 { transform: rotate(7deg); }
+    .sticker-rot-5 { transform: rotate(4deg); }
+    .sticker-rot-6 { transform: rotate(-5deg); }
+    
     /* ==================== STICKER BOARD ==================== */
     .gifts-title {
       margin-top: 30px;
@@ -227,36 +294,37 @@
 
     <!-- STICKER BOARD -->
     <div class="sticker-board">
-      <button class="sticker" onclick="openPage('blessing.html')">
+        <div class="sticker-board">
+      <button class="sticker sticker-rot-1" onclick="openPage('blessing.html')">
         <img src="blessing.png" alt="You My Blessing" class="sticker-img" />
         <span class="sticker-name">You My Blessing 🧿</span>
       </button>
 
-      <button class="sticker" onclick="openPage('letter.html')">
+      <button class="sticker sticker-rot-2" onclick="openPage('letter.html')">
         <img src="letter.png" alt="Letter" class="sticker-img" />
         <span class="sticker-name">Letter 💌</span>
       </button>
 
-      <button class="sticker" onclick="openPage('cake-page.html')">
+      <button class="sticker sticker-rot-3" onclick="openPage('cake-page.html')">
         <img src="cake-sticker.png" alt="Cake" class="sticker-img" />
         <span class="sticker-name">Cake 🎂</span>
       </button>
 
-      <button class="sticker" onclick="openPage('flower.html')">
+      <button class="sticker sticker-rot-4" onclick="openPage('flower.html')">
         <img src="flower.png" alt="Flowers" class="sticker-img" />
         <span class="sticker-name">Flowers 🌷</span>
       </button>
 
-      <button class="sticker" onclick="openPage('gift.html')">
+      <button class="sticker sticker-rot-5" onclick="openPage('gift.html')">
         <img src="gift.png" alt="Gift" class="sticker-img" />
         <span class="sticker-name">Gift 🎁</span>
       </button>
 
-      <button class="sticker" onclick="openPage('memory.html')">
+      <button class="sticker sticker-rot-6" onclick="openPage('memory.html')">
         <img src="memory.png" alt="Memory" class="sticker-img" />
         <span class="sticker-name">Memory 🧸</span>
       </button>
-    </div>
+        </div>
   </section>
 
   <script>
