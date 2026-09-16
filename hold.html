@@ -1,410 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<title>A Little Birthday Surprise 🎂</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>A Little Birthday Surprise 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #ffe6ee, #fff4f8);
+      overflow-x: hidden;
+      text-align: center;
+      color: #6a0f70;
+      position: relative;
+    }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #ffe6ee, #fff4f8);
-  overflow-x: hidden;
-  text-align: center;
-  color: #8a6f78;
-}
+    /* ==================== CAKE SCREEN ==================== */
+    #cake-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      transition: opacity 0.8s ease;
+    }
 
-/* ---------- MAIN SCREEN ---------- */
+    .countdown {
+      font-size: 90px;
+      font-weight: 900;
+      color: #ff3377;
+      text-shadow: 0 6px 18px rgba(255, 60, 120, 0.35);
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5px;
+      transition: transform 0.25s ease;
+    }
 
-#cake-screen {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
-  transition: opacity 0.8s ease;
-}
+    .pop-anim {
+      animation: numPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
-.cake {
-  width: min(280px, 75vw);
-  max-height: 330px;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 25px rgba(255, 150, 190, 0.35));
-  animation: cakeFloat 2.5s ease-in-out infinite;
-}
+    @keyframes numPop {
+      0% { transform: scale(0.5); opacity: 0.4; }
+      70% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-@keyframes cakeFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
+    .blow-text {
+      margin-top: 5px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #d3799f;
+    }
 
-  50% {
-    transform: translateY(-10px);
-  }
-}
+    .sub-text {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #b28c98;
+      margin-bottom: 15px;
+    }
 
-.blow-text {
-  margin-top: 15px;
-  font-size: 24px;
-  font-weight: 700;
-  color: #d9799f;
-}
+    .cake {
+      width: min(280px, 75vw);
+      max-height: 330px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(255, 150, 190, 0.35));
+      animation: cakeFloat 3s ease-in-out infinite;
+    }
 
-.sub-text {
-  margin-top: 7px;
-  font-size: 14px;
-  color: #b28c98;
-}
+    @keyframes cakeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-.countdown {
-  font-size: 90px;
-  font-weight: 900;
-  color: #ff3377;
-  text-shadow: 0 6px 18px rgba(255, 60, 120, 0.35);
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  }
+    .blow-hint {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #b59aa3;
+    }
 
-@keyframes numPop {
-  0% { transform: scale(0.5); opacity: 0; }
-  70% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
-}
-  
+    /* ==================== BIRTHDAY SCREEN ==================== */
+    #birthday-screen {
+      display: none;
+      min-height: 100vh;
+      padding: 35px 20px 50px 20px;
+      animation: birthdayAppear 1s ease forwards;
+    }
 
-.blow-hint {
-  margin-top: 5px;
-  font-size: 13px;
-  color: #b59aa3;
-}
+    @keyframes birthdayAppear {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-/* ---------- BIRTHDAY SCREEN ---------- */
+    .birthday-title {
+      font-size: clamp(38px, 10vw, 55px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #df729d;
+      text-shadow: 0 5px 15px rgba(255, 150, 190, 0.35);
+      margin-top: 10px;
+    }
 
-#birthday-screen {
-  display: none;
-  min-height: 100vh;
-  padding: 35px 20px;
-  animation: birthdayAppear 1s ease forwards;
-}
+    .birthday-subtitle {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #a77f8b;
+    }
 
-@keyframes birthdayAppear {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
+    /* ==================== STICKER BOARD ==================== */
+    .gifts-title {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #d3799f;
+      font-weight: 700;
+    }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+    .gifts-subtitle {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #b59aa3;
+    }
 
-.birthday-title {
-  font-size: clamp(42px, 12vw, 85px);
-  font-weight: 900;
-  line-height: 0.95;
-  color: #df729d;
-  text-shadow:
-    0 5px 15px rgba(255, 150, 190, 0.35);
-  margin-top: 30px;
-}
+    .sticker-board {
+      max-width: 450px;
+      margin: 25px auto 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 5px;
+    }
 
-.birthday-subtitle {
-  margin-top: 18px;
-  font-size: 17px;
-  color: #a77f8b;
-}
+    .sticker {
+      border: none;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 24px;
+      padding: 18px 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 170, 200, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
 
-/* ---------- STICKER BOARD ---------- */
+    .sticker:active {
+      transform: scale(0.95);
+    }
 
-.gifts-title {
-  margin-top: 55px;
-  font-size: 25px;
-  color: #d9799f;
-}
+    .sticker-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 4px 8px rgba(255, 120, 160, 0.25));
+    }
 
-.gifts-subtitle {
-  margin-top: 7px;
-  font-size: 13px;
-  color: #b59aa3;
-}
+    .sticker-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #a04f83;
+    }
 
-.sticker-board {
-  max-width: 650px;
-  margin: 25px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
+    /* ==================== FLOATING HEARTS ==================== */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 18px;
+      pointer-events: none;
+      animation: heartUp linear forwards;
+      z-index: 0;
+    }
 
-.sticker {
-  border: none;
-  background: rgba(255, 255, 255, 0.72);
-  border-radius: 25px;
-  padding: 22px 10px;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(255, 170, 200, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.sticker:hover {
-  transform: translateY(-7px) rotate(-2deg) scale(1.04);
-  box-shadow: 0 15px 30px rgba(255, 150, 190, 0.35);
-}
-
-.sticker:active {
-  transform: scale(0.95);
-}
-
-.sticker-img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 8px auto;
-  filter: drop-shadow(0 4px 6px rgba(255, 120, 160, 0.25));
-}
-  
-
-.sticker-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #a96f83;
-}
-
-/* ---------- FLOATING HEARTS ---------- */
-
-.heart {
-  position: fixed;
-  bottom: -30px;
-  font-size: 18px;
-  pointer-events: none;
-  animation: heartUp linear forwards;
-  z-index: 0;
-}
-
-@keyframes heartUp {
-  from {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 0.7;
-  }
-
-  to {
-    transform: translateY(-110vh) rotate(25deg);
-    opacity: 0;
-  }
-}
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 500px) {
-
-  .sticker-board {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .sticker {
-    padding: 18px 8px;
-  }
-
-  .sticker-icon {
-    font-size: 40px;
-  }
-
-  .birthday-title {
-    margin-top: 15px;
-  }
-
-}
-
-</style>
+    @keyframes heartUp {
+      from { transform: translateY(0) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.7; }
+      to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+    }
+  </style>
 </head>
-
-
 <body>
-<audio id="birthday-music" src="birthday-song.mp3" loop></audio>
-<!-- ================= CAKE SCREEN ================= -->
 
-<section id="cake-screen">
+  <!-- Audio Player (Song 2) -->
+  <audio id="birthday-music" src="birthday-song.mp3" loop></audio>
 
-  <div class="countdown" id="countdown">
-    3
-  </div>
+  <!-- CAKE SCREEN -->
+  <section id="cake-screen">
+    <div class="countdown pop-anim" id="countdown">3</div>
+    <div class="blow-text">Blow in... 🕯️</div>
+    <div class="sub-text">Make a little heartly birthday wish first cutu💗</div>
+    <img src="Cake.png" class="cake" alt="Birthday cake" />
+    <div class="blow-hint">get readyyy my love...</div>
+  </section>
 
-  <div class="blow-text">
-    Blow in... 🕯️
-  </div>
+  <!-- BIRTHDAY REVEAL SCREEN -->
+  <section id="birthday-screen">
+    <div class="birthday-title">
+      HAPPIEST<br />BIRTHDAYYY 🎂
+    </div>
+    <div class="birthday-subtitle">
+      May your everyday be as loveliest as your smilee 💗✨
+    </div>
 
-  <div class="sub-text">
-    Make a little heartly birthday wishh cutu ji💗
-  </div>
+    <div class="gifts-title">
+      A few little surprises for miss everything 🎀
+    </div>
+    <div class="gifts-subtitle">
+      Tap one... lets see what is you getting yaayy 👀
+    </div>
 
-  <img src="Cake.png" class="cake" alt="Birthday cake">
+    <!-- STICKER BOARD -->
+    <div class="sticker-board">
+      <button class="sticker" onclick="openPage('blessing.html')">
+        <img src="blessing.png" alt="You My Blessing" class="sticker-img" />
+        <span class="sticker-name">You My Blessing 🧿</span>
+      </button>
 
-  <div class="blow-hint">
-    get readyyy my love...
-  </div>
-  
+      <button class="sticker" onclick="openPage('letter.html')">
+        <img src="letter.png" alt="Letter" class="sticker-img" />
+        <span class="sticker-name">Letter 💌</span>
+      </button>
 
-</section>
+      <button class="sticker" onclick="openPage('cake-page.html')">
+        <img src="cake-sticker.png" alt="Cake" class="sticker-img" />
+        <span class="sticker-name">Cake 🎂</span>
+      </button>
 
+      <button class="sticker" onclick="openPage('flower.html')">
+        <img src="flower.png" alt="Flowers" class="sticker-img" />
+        <span class="sticker-name">Flowers 🌷</span>
+      </button>
 
-<!-- ================= BIRTHDAY SCREEN ================= -->
+      <button class="sticker" onclick="openPage('gift.html')">
+        <img src="gift.png" alt="Gift" class="sticker-img" />
+        <span class="sticker-name">Gift 🎁</span>
+      </button>
 
-<section id="birthday-screen">
+      <button class="sticker" onclick="openPage('memory.html')">
+        <img src="memory.png" alt="Memory" class="sticker-img" />
+        <span class="sticker-name">Memory 🧸</span>
+      </button>
+    </div>
+  </section>
 
-  <div class="birthday-title">
-    HAPPIE<br>
-    BIRTHDAYYY🎂
-  </div>
+  <script>
+    // --- 1. Audio Handler ---
+    const birthdayMusic = document.getElementById("birthday-music");
+    if (birthdayMusic) {
+      birthdayMusic.volume = 0.12;
+      birthdayMusic.play().catch(() => {
+        document.addEventListener("click", () => {
+          birthdayMusic.play();
+        }, { once: true });
+      });
+    }
 
-  <div class="birthday-subtitle">
-    May your everyday be as loveliest as your smilee💗✨
-  </div>
+    // --- 2. Countdown Engine ---
+    const countdownEl = document.getElementById("countdown");
+    const cakeScreen = document.getElementById("cake-screen");
+    const birthdayScreen = document.getElementById("birthday-screen");
 
+    const numbers = ["3", "2", "1", "🎉"];
+    let index = 0;
 
-  <div class="gifts-title">
-    A few little surprises for miss everything🎀
-  </div>
+    const countdownTimer = setInterval(() => {
+      index++;
 
-  <div class="gifts-subtitle">
-    Tap one... lets see what is you getting yaayy 👀
-  </div>
+      if (index < numbers.length) {
+        countdownEl.classList.remove("pop-anim");
+        void countdownEl.offsetWidth; // Force CSS reflow to re-trigger pop
+        countdownEl.textContent = numbers[index];
+        countdownEl.classList.add("pop-anim");
+      } else {
+        clearInterval(countdownTimer);
 
+        setTimeout(() => {
+          cakeScreen.style.opacity = "0";
 
-  <div class="sticker-board">
+          setTimeout(() => {
+            cakeScreen.style.display = "none";
+            birthdayScreen.style.display = "block";
+            createHearts();
+          }, 800);
+        }, 700);
+      }
+    }, 1000);
 
-        <button class="sticker" onclick="openPage('blessing.html')">
-          <img src="blessing.png" alt="You My Blessing" class="sticker-img">
-          <span class="sticker-name">You My Blessing 🧿</span>
-        </button>
+    // --- 3. Floating Hearts ---
+    function createHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        const heartIcons = ["💖", "💗", "🌸", "✨", "🤍"];
+        heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.style.left = Math.random() * 95 + "vw";
+        heart.style.animationDuration = (4.5 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
 
-        <button class="sticker" onclick="openPage('letter.html')">
-          <img src="letter.png" alt="Letter" class="sticker-img">
-          <span class="sticker-name">Letter 💌</span>
-        </button>
+        setTimeout(() => {
+          heart.remove();
+        }, 7500);
+      }, 450);
+    }
 
-        <button class="sticker" onclick="openPage('cake-page.html')">
-          <img src="cake-sticker.png" alt="Cake" class="sticker-img">
-          <span class="sticker-name">Cake 🎂</span>
-        </button>
-
-        <button class="sticker" onclick="openPage('flower.html')">
-          <img src="flower.png" alt="Flowers" class="sticker-img">
-          <span class="sticker-name">Flowers 🌷</span>
-        </button>
-
-        <button class="sticker" onclick="openPage('gift.html')">
-          <img src="gift.png" alt="Gift" class="sticker-img">
-          <span class="sticker-name">Gift 🎁</span>
-        </button>
-
-        <button class="sticker" onclick="openPage('memory.html')">
-          <img src="memory.png" alt="Memory" class="sticker-img">
-          <span class="sticker-name">Memory 🧸</span>
-        </button>
-    
-  </div>
-
-</section>
-
-
-<script>
-
-/* =========================================
-   MUSIC
-========================================= */
-const birthdayMusic = document.getElementById("birthday-music");
-
-if (birthdayMusic) {
-  birthdayMusic.volume = 0.12;
-  birthdayMusic.play().catch(() => {
-    document.addEventListener("click", () => {
-      birthdayMusic.play();
-    }, { once: true });
-  });
-}
-  
-/* =========================================
-   COUNTDOWN
-========================================= */
-
-const countdown = document.getElementById("countdown");
-
-const cakeScreen = document.getElementById("cake-screen");
-
-const birthdayScreen = document.getElementById("birthday-screen");
-
-let numbers = ["3", "2", "1", "🎉"];
-let count = 3;
-countdown.textContent = count;
-
-const countdownTimer = setInterval(() => {
-  count--;
-  if (count > 0) {
-    countdown.textContent = count;
-  } else if (count === 0) {
-    countdown.textContent = "🎉";
-  } else {
-    clearInterval(countdownTimer);
-    cakeScreen.style.opacity = "0";
-    setTimeout(() => {
-      cakeScreen.style.display = "none";
-      birthdayScreen.style.display = "block";
-      birthdayScreen.style.opacity = "1";
-    }, 600);
-  }
-}, 1000);  
-  
-/* =========================================
-   FLOATING HEARTS
-========================================= */
-function createHearts() {
-  const heartIcons = ["💖", "💗", "🌸", "✨", "🤍"];
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-    heart.style.left = Math.random() * 95 + "vw";
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 7000);
-  }, 500);
-}
-createHearts();
-
-/* =========================================
-   STICKER BUTTONS
-========================================= */
-
-  function openPage(pageUrl) {
-  window.location.href = pageUrl;
-}
-
-}
-
-</script>
-
+    // --- 4. Navigation ---
+    function openPage(pageUrl) {
+      window.location.href = pageUrl;
+    }
+  </script>
 </body>
 </html>
