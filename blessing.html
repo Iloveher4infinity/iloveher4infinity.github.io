@@ -15,17 +15,17 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(180deg, #ffd8e8, #ffeef5, #ffd5e8);
+      background: linear-gradient(180deg, #ffd6e7, #fff0f6, #ffd2e5);
       color: #6a0f70;
       overflow-x: hidden;
-      padding: 20px 10px 80px 10px;
+      padding: 16px 6px 80px 6px;
       position: relative;
     }
 
-    /* Top Bar */
+    /* Top Back Button */
     .top-bar {
-      max-width: 1000px;
-      margin: 0 auto 16px auto;
+      max-width: 900px;
+      margin: 0 auto 12px 6px;
       text-align: left;
     }
 
@@ -36,7 +36,7 @@
       padding: 8px 18px;
       border-radius: 999px;
       border: none;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       color: #df4d88;
       font-weight: 700;
       font-size: 13px;
@@ -50,74 +50,82 @@
       transform: scale(0.92);
     }
 
-    /* Layout: 3 Columns Spanning the Entire Height */
+    /* Layout Wrapper */
     .page-wrapper {
-      max-width: 1020px;
+      max-width: 850px;
       margin: 0 auto;
       display: flex;
-      align-items: stretch; /* Stretches sidebars to match the exact height of the middle card */
-      gap: 12px;
+      align-items: stretch;
+      justify-content: center;
       position: relative;
     }
 
     /* Left & Right Sidebars */
     .sticker-sidebar {
-      flex: 0 0 130px;
+      flex: 0 0 50px; /* Small footprint so center box gets maximum width */
       display: flex;
       flex-direction: column;
-      justify-content: space-around; /* Distributes stickers evenly from top to bottom */
+      justify-content: space-around;
       align-items: center;
-      padding: 20px 0;
+      padding: 10px 0;
+      z-index: 2;
     }
 
-    /* Big Cute Stickers (White Background Removed) */
+    /* Big Cute Floating Stickers (White Completely Erased) */
     .side-sticker {
-      width: 125px;
-      height: 125px;
-      max-width: 30vw;
-      max-height: 30vw;
+      width: 120px;
+      height: 120px;
+      max-width: 32vw;
+      max-height: 32vw;
       object-fit: contain;
-      mix-blend-mode: multiply; /* Cuts out white backgrounds cleanly! */
-      filter: drop-shadow(0 6px 12px rgba(220, 90, 140, 0.22));
+      /* Blends out all white and tinted JPEG edges */
+      mix-blend-mode: multiply;
+      filter: contrast(135%) brightness(105%) drop-shadow(0 4px 10px rgba(220, 90, 140, 0.2));
+      pointer-events: none; /* Allows user to easily tap & scroll through text even if overlapping */
       transition: transform 0.25s ease;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .side-sticker:active {
-      transform: scale(1.15) !important;
+    /* Left & Right Shifts So They Rest Playfully On the Border */
+    .left-shift {
+      margin-right: -35px;
     }
 
-    /* Alternating Tilted Rotations */
-    .rot-1 { transform: rotate(-8deg); }
-    .rot-2 { transform: rotate(9deg); }
-    .rot-3 { transform: rotate(-11deg); }
-    .rot-4 { transform: rotate(7deg); }
-    .rot-5 { transform: rotate(-6deg); }
-    .rot-6 { transform: rotate(10deg); }
-    .rot-7 { transform: rotate(-7deg); }
-    .rot-8 { transform: rotate(8deg); }
+    .right-shift {
+      margin-left: -35px;
+    }
+
+    /* Tilted Rotations */
+    .rot-1 { transform: rotate(-9deg); }
+    .rot-2 { transform: rotate(10deg); }
+    .rot-3 { transform: rotate(-12deg); }
+    .rot-4 { transform: rotate(8deg); }
+    .rot-5 { transform: rotate(-7deg); }
+    .rot-6 { transform: rotate(11deg); }
+    .rot-7 { transform: rotate(-8deg); }
+    .rot-8 { transform: rotate(9deg); }
     .rot-9 { transform: rotate(-10deg); }
-    .rot-10 { transform: rotate(6deg); }
-    .rot-11 { transform: rotate(-5deg); }
-    .rot-12 { transform: rotate(9deg); }
+    .rot-10 { transform: rotate(7deg); }
+    .rot-11 { transform: rotate(-6deg); }
+    .rot-12 { transform: rotate(10deg); }
     .rot-13 { transform: rotate(-8deg); }
 
-    /* Middle Message Card */
+    /* Wide Center Message Card */
     .message-card {
       flex: 1;
-      min-width: 0;
+      width: 82%;
+      max-width: 660px;
       background: rgba(255, 255, 255, 0.95);
       border-radius: 36px;
-      padding: 34px 22px 45px 22px;
-      box-shadow: 0 20px 50px rgba(255, 140, 185, 0.28);
-      border: 2px solid rgba(255, 215, 235, 0.9);
+      padding: 34px 22px 42px 22px;
+      box-shadow: 0 18px 45px rgba(255, 130, 180, 0.26);
+      border: 2px solid rgba(255, 220, 238, 0.95);
       position: relative;
-      z-index: 2;
+      z-index: 3;
       text-align: center;
     }
 
     .main-heading {
-      font-size: clamp(20px, 5.5vw, 28px);
+      font-size: clamp(21px, 6vw, 30px);
       font-weight: 900;
       color: #df4d88;
       line-height: 1.25;
@@ -158,22 +166,28 @@
       text-shadow: 0 2px 8px rgba(255, 120, 170, 0.25);
     }
 
-    /* Mobile Responsive Sizing */
+    /* Mobile Enhancements */
     @media (max-width: 600px) {
       .sticker-sidebar {
-        flex: 0 0 85px;
+        flex: 0 0 35px;
       }
       .side-sticker {
-        width: 82px;
-        height: 82px;
+        width: 100px;
+        height: 100px;
+      }
+      .left-shift {
+        margin-right: -24px;
+      }
+      .right-shift {
+        margin-left: -24px;
       }
       .message-card {
-        padding: 24px 14px 35px 14px;
+        padding: 24px 14px 34px 14px;
         border-radius: 28px;
       }
       .text-content {
-        font-size: 13.5px;
-        line-height: 1.7;
+        font-size: 14px;
+        line-height: 1.72;
       }
       .poem-box {
         font-size: 13.5px;
@@ -184,29 +198,30 @@
 </head>
 <body>
 
+  <!-- Top Navigation -->
   <div class="top-bar">
     <a href="hold.html" class="back-btn">⬅ Back to Surprises 🎂</a>
   </div>
 
   <div class="page-wrapper">
-    <!-- LEFT SIDEBAR (13 Stickers: s1, s3, s5, s7, s9, s11, s13, s15, s17, s19, s21, s23, s25) -->
+    <!-- LEFT SIDEBAR (13 Stickers: s1 to s25) -->
     <aside class="sticker-sidebar">
-      <img src="s1.png" alt="sticker" class="side-sticker rot-1" />
-      <img src="s3.png" alt="sticker" class="side-sticker rot-3" />
-      <img src="s5.png" alt="sticker" class="side-sticker rot-5" />
-      <img src="s7.png" alt="sticker" class="side-sticker rot-7" />
-      <img src="s9.png" alt="sticker" class="side-sticker rot-9" />
-      <img src="s11.png" alt="sticker" class="side-sticker rot-11" />
-      <img src="s13.png" alt="sticker" class="side-sticker rot-13" />
-      <img src="s15.png" alt="sticker" class="side-sticker rot-2" />
-      <img src="s17.png" alt="sticker" class="side-sticker rot-4" />
-      <img src="s19.png" alt="sticker" class="side-sticker rot-6" />
-      <img src="s21.png" alt="sticker" class="side-sticker rot-8" />
-      <img src="s23.png" alt="sticker" class="side-sticker rot-10" />
-      <img src="s25.png" alt="sticker" class="side-sticker rot-12" />
+      <img src="s1.png" alt="sticker" class="side-sticker left-shift rot-1" />
+      <img src="s3.png" alt="sticker" class="side-sticker left-shift rot-3" />
+      <img src="s5.png" alt="sticker" class="side-sticker left-shift rot-5" />
+      <img src="s7.png" alt="sticker" class="side-sticker left-shift rot-7" />
+      <img src="s9.png" alt="sticker" class="side-sticker left-shift rot-9" />
+      <img src="s11.png" alt="sticker" class="side-sticker left-shift rot-11" />
+      <img src="s13.png" alt="sticker" class="side-sticker left-shift rot-13" />
+      <img src="s15.png" alt="sticker" class="side-sticker left-shift rot-2" />
+      <img src="s17.png" alt="sticker" class="side-sticker left-shift rot-4" />
+      <img src="s19.png" alt="sticker" class="side-sticker left-shift rot-6" />
+      <img src="s21.png" alt="sticker" class="side-sticker left-shift rot-8" />
+      <img src="s23.png" alt="sticker" class="side-sticker left-shift rot-10" />
+      <img src="s25.png" alt="sticker" class="side-sticker left-shift rot-12" />
     </aside>
 
-    <!-- MIDDLE CARD -->
+    <!-- CENTER MESSAGE CARD (Much Wider) -->
     <main class="message-card">
       <h1 class="main-heading">IM SO HAPPIE FOR YOUR BIRTH UUUHUUUU😝🫶</h1>
 
@@ -265,24 +280,23 @@ I LOVE WHEN YOU HAPPIEE FOREVERBEBLESSEDALIVEMARRIEDTOME HAII FOREVER I JUSSS LO
       <div class="sign-off">Your always pagal kukur jii🧿💖</div>
     </main>
 
-    <!-- RIGHT SIDEBAR (13 Stickers: s2, s4, s6, s8, s10, s12, s14, s16, s18, s20, s22, s24, s26) -->
+    <!-- RIGHT SIDEBAR (13 Stickers: s2 to s26) -->
     <aside class="sticker-sidebar">
-      <img src="s2.png" alt="sticker" class="side-sticker rot-2" />
-      <img src="s4.png" alt="sticker" class="side-sticker rot-4" />
-      <img src="s6.png" alt="sticker" class="side-sticker rot-6" />
-      <img src="s8.png" alt="sticker" class="side-sticker rot-8" />
-      <img src="s10.png" alt="sticker" class="side-sticker rot-10" />
-      <img src="s12.png" alt="sticker" class="side-sticker rot-12" />
-      <img src="s14.png" alt="sticker" class="side-sticker rot-1" />
-      <img src="s16.png" alt="sticker" class="side-sticker rot-3" />
-      <img src="s18.png" alt="sticker" class="side-sticker rot-5" />
-      <img src="s20.png" alt="sticker" class="side-sticker rot-7" />
-      <img src="s22.png" alt="sticker" class="side-sticker rot-9" />
-      <img src="s24.png" alt="sticker" class="side-sticker rot-11" />
-      <img src="s26.png" alt="sticker" class="side-sticker rot-13" />
+      <img src="s2.png" alt="sticker" class="side-sticker right-shift rot-2" />
+      <img src="s4.png" alt="sticker" class="side-sticker right-shift rot-4" />
+      <img src="s6.png" alt="sticker" class="side-sticker right-shift rot-6" />
+      <img src="s8.png" alt="sticker" class="side-sticker right-shift rot-8" />
+      <img src="s10.png" alt="sticker" class="side-sticker right-shift rot-10" />
+      <img src="s12.png" alt="sticker" class="side-sticker right-shift rot-12" />
+      <img src="s14.png" alt="sticker" class="side-sticker right-shift rot-1" />
+      <img src="s16.png" alt="sticker" class="side-sticker right-shift rot-3" />
+      <img src="s18.png" alt="sticker" class="side-sticker right-shift rot-5" />
+      <img src="s20.png" alt="sticker" class="side-sticker right-shift rot-7" />
+      <img src="s22.png" alt="sticker" class="side-sticker right-shift rot-9" />
+      <img src="s24.png" alt="sticker" class="side-sticker right-shift rot-11" />
+      <img src="s26.png" alt="sticker" class="side-sticker right-shift rot-13" />
     </aside>
   </div>
 
 </body>
-        </html>
-  
+</html>
