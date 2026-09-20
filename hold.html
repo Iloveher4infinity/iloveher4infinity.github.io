@@ -334,40 +334,51 @@
         }, { once: true });
       });
     }
-
-    // --- 2. Countdown Engine ---
-        const countdownEl = document.getElementById("countdown");
+    
+        // --- 2. Countdown Engine & Return Detection ---
+    const countdownEl = document.getElementById("countdown");
     const cakeScreen = document.getElementById("cake-screen");
     const birthdayScreen = document.getElementById("birthday-screen");
 
-    const numbers = ["3", "2", "1", "🎉"];
-    let index = 0;
+    // Check if coming back from blessing.html
+    const urlParams = new URLSearchParams(window.location.search);
+    const returningFromSurprise = urlParams.get("from");
 
-    const countdownTimer = setInterval(() => {
-      index++;
+    if (returningFromSurprise) {
+      // Instantly skip cake and countdown
+      cakeScreen.style.display = "none";
+      birthdayScreen.style.display = "block";
+      birthdayScreen.style.opacity = "1";
+      createHearts();
+    } else {
+      // First-time visit: play the normal countdown
+      const numbers = ["3", "2", "1", "🎉"];
+      let index = 0;
 
-      if (index < numbers.length) {
-        countdownEl.classList.remove("pop-anim");
-        void countdownEl.offsetWidth;
-        countdownEl.textContent = numbers[index];
-        countdownEl.classList.add("pop-anim");
-      } else {
-        clearInterval(countdownTimer);
+      const countdownTimer = setInterval(() => {
+        index++;
 
-        setTimeout(() => {
-          cakeScreen.style.opacity = "0";
+        if (index < numbers.length) {
+          countdownEl.classList.remove("pop-anim");
+          void countdownEl.offsetWidth;
+          countdownEl.textContent = numbers[index];
+          countdownEl.classList.add("pop-anim");
+        } else {
+          clearInterval(countdownTimer);
 
           setTimeout(() => {
-            cakeScreen.style.display = "none";
-            birthdayScreen.style.display = "block";
-            birthdayScreen.style.opacity = "1";
+            cakeScreen.style.opacity = "0";
 
-            // Starts floating hearts immediately when birthday screen shows
-            createHearts();
-          }, 700);
-        }, 600);
-      }
-    }, 1000);
+            setTimeout(() => {
+              cakeScreen.style.display = "none";
+              birthdayScreen.style.display = "block";
+              birthdayScreen.style.opacity = "1";
+              createHearts();
+            }, 700);
+          }, 600);
+        }
+      }, 1000);
+    }
 
   function createHearts() {
   const heartIcons = ["💖", "💗", "🌸", "✨", "🤍", "🎀", "✨", "💕"];
