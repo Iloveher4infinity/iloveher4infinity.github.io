@@ -15,17 +15,17 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(180deg, #ffd6e7, #fff0f6, #ffd2e5);
+      background: linear-gradient(180deg, #ffd7e9 0%, #fff2f8 50%, #ffd0e6 100%);
       color: #6a0f70;
       overflow-x: hidden;
-      padding: 16px 6px 80px 6px;
+      padding: 16px 4px 80px 4px;
       position: relative;
     }
 
     /* Top Back Button */
     .top-bar {
-      max-width: 900px;
-      margin: 0 auto 12px 6px;
+      max-width: 960px;
+      margin: 0 auto 14px 10px;
       text-align: left;
     }
 
@@ -33,7 +33,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: 999px;
       border: none;
       background: rgba(255, 255, 255, 0.95);
@@ -42,17 +42,18 @@
       font-size: 13px;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(255, 120, 160, 0.25);
+      box-shadow: 0 4px 16px rgba(255, 120, 160, 0.28);
       -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease;
     }
 
     .back-btn:active {
       transform: scale(0.92);
     }
 
-    /* Layout Wrapper */
+    /* Layout: 3 Columns Stretched from Top to Bottom */
     .page-wrapper {
-      max-width: 850px;
+      max-width: 960px;
       margin: 0 auto;
       display: flex;
       align-items: stretch;
@@ -60,41 +61,40 @@
       position: relative;
     }
 
-    /* Left & Right Sidebars */
+    /* Sidebars: Sits ABOVE the Card */
     .sticker-sidebar {
-      flex: 0 0 50px; /* Small footprint so center box gets maximum width */
+      flex: 0 0 40px; /* Small layout base so the center card gets all the room */
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-around; /* Distributes evenly along full length */
       align-items: center;
       padding: 10px 0;
-      z-index: 2;
+      z-index: 10; /* Places stickers ABOVE the card */
+      pointer-events: none; /* Never blocks scrolling or clicking text */
     }
 
-    /* Big Cute Floating Stickers (White Completely Erased) */
+    /* Bigger, Playful Stickers overlapping the edge */
     .side-sticker {
-      width: 120px;
-      height: 120px;
-      max-width: 32vw;
-      max-height: 32vw;
+      width: 130px;
+      height: 130px;
+      max-width: 36vw;
+      max-height: 36vw;
       object-fit: contain;
-      /* Blends out all white and tinted JPEG edges */
-      mix-blend-mode: multiply;
-      filter: contrast(135%) brightness(105%) drop-shadow(0 4px 10px rgba(220, 90, 140, 0.2));
-      pointer-events: none; /* Allows user to easily tap & scroll through text even if overlapping */
+      filter: drop-shadow(0 6px 14px rgba(220, 80, 130, 0.3));
       transition: transform 0.25s ease;
+      position: relative;
     }
 
-    /* Left & Right Shifts So They Rest Playfully On the Border */
+    /* Shifts stickers onto the card edges */
     .left-shift {
-      margin-right: -35px;
+      margin-right: -45px;
     }
 
     .right-shift {
-      margin-left: -35px;
+      margin-left: -45px;
     }
 
-    /* Tilted Rotations */
+    /* Natural Playful Tilted Rotations */
     .rot-1 { transform: rotate(-9deg); }
     .rot-2 { transform: rotate(10deg); }
     .rot-3 { transform: rotate(-12deg); }
@@ -109,47 +109,49 @@
     .rot-12 { transform: rotate(10deg); }
     .rot-13 { transform: rotate(-8deg); }
 
-    /* Wide Center Message Card */
+    /* Wide, Pretty Center Message Card */
     .message-card {
       flex: 1;
-      width: 82%;
-      max-width: 660px;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 36px;
-      padding: 34px 22px 42px 22px;
-      box-shadow: 0 18px 45px rgba(255, 130, 180, 0.26);
-      border: 2px solid rgba(255, 220, 238, 0.95);
+      width: 88%;
+      max-width: 720px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 40px;
+      /* Generous inner horizontal padding protects text from overlapping stickers */
+      padding: 38px 28px 46px 28px;
+      box-shadow: 0 22px 60px rgba(255, 120, 175, 0.32), inset 0 0 20px rgba(255, 240, 247, 0.6);
+      border: 3px solid #ffe1ef;
       position: relative;
-      z-index: 3;
+      z-index: 2; /* Sits beneath stickers */
       text-align: center;
     }
 
     .main-heading {
-      font-size: clamp(21px, 6vw, 30px);
+      font-size: clamp(21px, 6vw, 32px);
       font-weight: 900;
       color: #df4d88;
       line-height: 1.25;
+      letter-spacing: 0.3px;
       text-shadow: 0 2px 10px rgba(255, 100, 160, 0.2);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .poem-box {
-      background: linear-gradient(135deg, #fff2f8, #ffeaf3);
-      border-radius: 20px;
-      padding: 20px 16px;
-      margin: 20px 0;
-      border: 1px dashed #ff9ec7;
+      background: linear-gradient(135deg, #fff2f8, #ffeaf4);
+      border-radius: 22px;
+      padding: 22px 18px;
+      margin: 24px 0;
+      border: 2px dashed #ff9fc9;
       font-style: italic;
       color: #8c2662;
-      line-height: 1.8;
+      line-height: 1.85;
       font-size: 15px;
-      box-shadow: inset 0 2px 8px rgba(255, 180, 205, 0.2);
+      box-shadow: inset 0 2px 10px rgba(255, 180, 205, 0.22);
       text-align: center;
     }
 
     .text-content {
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.85;
       color: #682650;
       white-space: pre-line;
       text-align: left;
@@ -158,53 +160,53 @@
     }
 
     .sign-off {
-      margin-top: 32px;
-      font-size: 18px;
+      margin-top: 36px;
+      font-size: 19px;
       font-weight: 800;
       color: #e04584;
       text-align: center;
       text-shadow: 0 2px 8px rgba(255, 120, 170, 0.25);
     }
 
-    /* Mobile Enhancements */
+    /* Mobile Fine-Tuning */
     @media (max-width: 600px) {
       .sticker-sidebar {
-        flex: 0 0 35px;
+        flex: 0 0 28px;
       }
       .side-sticker {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
       }
       .left-shift {
-        margin-right: -24px;
+        margin-right: -32px;
       }
       .right-shift {
-        margin-left: -24px;
+        margin-left: -32px;
       }
       .message-card {
-        padding: 24px 14px 34px 14px;
-        border-radius: 28px;
+        padding: 28px 18px 38px 18px;
+        border-radius: 32px;
       }
       .text-content {
-        font-size: 14px;
-        line-height: 1.72;
+        font-size: 14.5px;
+        line-height: 1.76;
       }
       .poem-box {
-        font-size: 13.5px;
-        padding: 16px 10px;
+        font-size: 14px;
+        padding: 18px 12px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation Bar -->
   <div class="top-bar">
     <a href="hold.html" class="back-btn">⬅ Back to Surprises 🎂</a>
   </div>
 
   <div class="page-wrapper">
-    <!-- LEFT SIDEBAR (13 Stickers: s1 to s25) -->
+    <!-- LEFT SIDEBAR (s1 to s25) -->
     <aside class="sticker-sidebar">
       <img src="s1.png" alt="sticker" class="side-sticker left-shift rot-1" />
       <img src="s3.png" alt="sticker" class="side-sticker left-shift rot-3" />
@@ -221,12 +223,12 @@
       <img src="s25.png" alt="sticker" class="side-sticker left-shift rot-12" />
     </aside>
 
-    <!-- CENTER MESSAGE CARD (Much Wider) -->
+    <!-- CENTER CARD (Wider, Prettier, Safe Text Room) -->
     <main class="message-card">
       <h1 class="main-heading">IM SO HAPPIE FOR YOUR BIRTH UUUHUUUU😝🫶</h1>
 
       <div class="text-content">
-happpieeeeestesttt brithdayyy my most important personn of lifeee🧿🥰🥳😆😝💖
+khi khi happpieeeeestesttt brithdayyy my most important personn of lifeee🧿🥰🥳😆😝💖
 UUUHUUU LESSSGOOOOOOO JII LESSGOO
 Yyayayayayayaaaaayayayaaaaaaaaa
 Herda herdaiiii timroo birthday pani ayo nee?
@@ -280,7 +282,7 @@ I LOVE WHEN YOU HAPPIEE FOREVERBEBLESSEDALIVEMARRIEDTOME HAII FOREVER I JUSSS LO
       <div class="sign-off">Your always pagal kukur jii🧿💖</div>
     </main>
 
-    <!-- RIGHT SIDEBAR (13 Stickers: s2 to s26) -->
+    <!-- RIGHT SIDEBAR (s2 to s26) -->
     <aside class="sticker-sidebar">
       <img src="s2.png" alt="sticker" class="side-sticker right-shift rot-2" />
       <img src="s4.png" alt="sticker" class="side-sticker right-shift rot-4" />
