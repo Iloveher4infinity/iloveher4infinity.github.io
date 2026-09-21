@@ -74,46 +74,39 @@
       font-size: 13.5px;
       font-weight: 700;
       color: #9c336b;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding: 0 14px;
       line-height: 1.45;
       position: relative;
       z-index: 5;
     }
 
-    /* Horizontal Banner Area */
+    /* Horizontal Banner Area: Normal Horizontal Flow */
     .banner-stage {
-      max-width: 420px;
-      height: 90px;
+      max-width: 440px;
       margin: 0 auto 14px auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
       position: relative;
       z-index: 6;
+      padding: 0 6px;
     }
 
     .side-banner {
-      width: 46px;
+      width: 48px;
+      max-width: 14vw;
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 4px 10px rgba(180, 80, 120, 0.25));
       animation: gentleWobble 3s ease-in-out infinite alternate;
     }
 
-    .main-banner-box {
-      width: 230px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .main-banner {
-      width: 80px;
-      height: 230px;
-      transform: rotate(90deg);
+      flex: 1;
+      max-width: 270px;
+      height: auto;
       object-fit: contain;
       filter: drop-shadow(0 6px 14px rgba(220, 70, 130, 0.3));
     }
@@ -262,7 +255,7 @@
       100% { opacity: 0; transform: translateY(-24px) scale(1.6); }
     }
 
-    /* Small Floating Real Balloons */
+    /* Floating Real Balloons */
     .balloon-floater {
       position: fixed;
       bottom: -60px;
@@ -317,7 +310,7 @@
       pointer-events: auto;
     }
 
-    /* Wish Card Wrapper: Bounded and Contained */
+    /* Wish Card Wrapper */
     .wish-card-wrapper {
       position: relative;
       width: 92%;
@@ -362,23 +355,23 @@
       transform: scale(0.9);
     }
 
-    /* Text Container strictly aligned with the notebook ruled lines */
+    /* Fixed Boundaries: Text is contained within the notebook lines */
     .wish-text-area {
       position: absolute;
       top: 36%;
-      bottom: 25%;
+      bottom: 37%;           /* High clearance above bottom edge and shells */
       left: 21%;
-      right: 15%;
-      overflow-y: auto;
+      right: 16%;
+      overflow-y: auto;     /* Smooth scrolling for longer text */
       -webkit-overflow-scrolling: touch;
       font-family: 'Caveat', cursive, sans-serif;
-      font-size: 17px;
-      line-height: 25px;
+      font-size: 16px;
+      line-height: 22px;    /* Matches notebook lined spacing */
       font-weight: 700;
       color: #0d2847;
       text-align: left;
       white-space: pre-line;
-      padding-right: 6px;
+      padding-right: 4px;
       word-break: break-word;
     }
 
@@ -405,9 +398,7 @@
   <!-- Horizontal Banners Row -->
   <div class="banner-stage">
     <img src="banner2.png" alt="15" class="side-banner" />
-    <div class="main-banner-box">
-      <img src="banner1.png" alt="Happy Birthday" class="main-banner" />
-    </div>
+    <img src="banner1.png" alt="Happy Birthday" class="main-banner" />
     <img src="banner2.png" alt="15" class="side-banner" />
   </div>
 
@@ -561,7 +552,7 @@
       8: "OHOOOO MY MAYA BLOWING CANDLES KHI KHI KHIUU AIWWWW kaati pyarii jii \n\nDo some more wishes jii do dooo ani...dont worryy hai soon \n\nYou would be blowingg candle Infront of mee we would have so much Fun on your birthday hai hai khi khi SO EXCITED K jii \n\nIm damm sure you would have so much funn In your birthday when we togetherrr I WOULD MAKE SURE THAT YOU ENJOY so \n\nWith this I WISH TO YOU AND ME TO BE TOGETHER AS HUSBAND AND WIFE HAPPIE,JOYFULL,LOVING,CARING,ADMIRING,WINNING CHILL SIGMA SWAG COUPLE FOREVER🧿✨😝😆🤞🤍",
 
       9: "DAAAYUMMM anotherr 9th candle blown yooo hahaaa aapka toh bash aura +999999 sey bhi kyada ho gya na ahahahahahaa😜🤭💫jii \n\nSo noww I WANNA HEARTLY FULLYLOVINGLY RESPECTIVELY PROMISE SOMETHING WITH YOU FOREVER \n\nHehe So after this there would be candles of promises hehe so with this I PROMISE \n\nI promise to be with you not only on easy and fun days but also on hard and unexpected days hehe I promise to be with you in every state,every stage,every up and down,every agee,every universee of lifee✨no matter wht I'm not gonna leave your side I WOULD BE WITH YOU NO MATTER WHT HAPPENS I WOULD NEVER LEAVE YOU🧿🫀🌷❄️🌼",
-
+      
       10: "10th candle also gone hahahaha jiii apney toh candle ko boom 💥 Blastic todh diya hahaha😆10 candle dead haha \n\nSO maya wish this candle I promise \n\nI promisee to do anything for making you smileeee\n\nI would always try hard and more hardest to jus to give you a littleee brightest smile I would try to keep you So muchh lovingly wow happiest,peacefull,perfectly loved,cared,appreciated,adored,admired everything like a queen 👑 becauseeee you are prettiest queenn goddesss my wifey you deserveee everything perfect I PROMISE🌈🎇🫀🌀💫",
 
       11: "Jii you are actuallyy really guud at candlee blowing mayahehhee im amazed and impressed ne tahh\n\nYou should bloww candle ar every birthday im so excited hehe U alsoo should be so excited mayaa \n\nYOU DESERVE IT SO MUCHH NE🤭😽💓🥺💕jii \n\nWith this candle I promiseee hehe \n\nThat I know I do many mistakes ik I'm so bad But sorry \n\nThat Mistakes make you feeel bad 😔 Muwahh muwah cutu I PROMISE I WOULD NEVER make you feel bad \n\nI promise I would never regrett choosing me I would never make you hurtt i wouldd never make you have tears 😭 jii IK \n\nYOU MIGHT BE THINKING IM JUSS LIKE OTHERS but im not like others maya You been with me For year did you seen me matching with bad guys no? Na IM YOUR GUUD BOYY I would never be like them I promise",
@@ -614,3 +605,4 @@
   </script>
 </body>
 </html>
+      9: "DAAAYUMMM anotherr 9th candle blown yooo hahaaa aapka toh bash aura +999999 sey bhi kyada ho gya na ahahahahahaa😜🤭💫jii \n\nSo noww I WANNA HEARTLY FULLYLOVINGLY RESPECTIVELY PROMISE SOMETHING WITH YOU FOREVER \n\nHehe So after this there would be candles of promises hehe so with this I PROMISE \n\nI promise to be with you not only on easy and fun days but also on hard and unexpected days hehe I promise to be with you in every state,every stage,every up and down,every agee,every universee of lifee✨no matter wht I'm not gonna leave your side I 
