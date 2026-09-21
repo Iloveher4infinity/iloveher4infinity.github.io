@@ -63,7 +63,7 @@
       color: #df4d88;
       line-height: 1.3;
       text-shadow: 0 2px 10px rgba(255, 100, 160, 0.25);
-      margin: 4px auto 8px auto;
+      margin: 4px auto 6px auto;
       max-width: 480px;
       padding: 0 10px;
       position: relative;
@@ -81,14 +81,38 @@
       z-index: 5;
     }
 
-    /* Cute Decorative Floating Elements Above & Below Cake */
-    .deco-banner {
-      font-size: 26px;
-      margin: 4px 0 12px 0;
-      user-select: none;
+    /* Banners Row */
+    .banner-row {
+      max-width: 420px;
+      margin: 0 auto 14px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       position: relative;
-      z-index: 5;
-      filter: drop-shadow(0 4px 8px rgba(255, 100, 160, 0.25));
+      z-index: 6;
+    }
+
+    .side-banner {
+      width: 55px;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(180, 80, 120, 0.25));
+      animation: gentleWobble 3s ease-in-out infinite alternate;
+    }
+
+    .main-banner {
+      flex: 1;
+      max-width: 250px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(220, 70, 130, 0.3));
+    }
+
+    @keyframes gentleWobble {
+      0% { transform: translateY(0) rotate(-2deg); }
+      100% { transform: translateY(-4px) rotate(2deg); }
     }
 
     /* Cake Stage */
@@ -100,7 +124,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 6;
+      z-index: 10;
     }
 
     .cake-img {
@@ -112,19 +136,19 @@
       user-select: none;
     }
 
-    /* Permanent Glowing '15' Stand */
+    /* Permanent Glowing '15' Stand (In Your Marked Spot) */
     .big-candle-15 {
       position: absolute;
-      top: 32%;
-      right: 27%;
+      top: 36%;
+      right: 28%;
       display: flex;
       gap: 3px;
-      z-index: 10;
+      z-index: 12;
       pointer-events: none;
     }
 
     .number-candle {
-      font-size: 26px;
+      font-size: 23px;
       font-weight: 900;
       color: #fff;
       text-shadow: 0 0 8px #ffb3d9, 0 0 16px #ff4081, 0 0 24px #ff1744;
@@ -135,10 +159,10 @@
     .number-candle::before {
       content: "🔥";
       position: absolute;
-      top: -16px;
+      top: -15px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 13px;
+      font-size: 12px;
       filter: drop-shadow(0 0 6px #ffea00);
       animation: flicker 0.15s infinite alternate;
     }
@@ -148,11 +172,11 @@
       100% { text-shadow: 0 0 12px #ffe6f2, 0 0 24px #ff4081, 0 0 32px #ff0055; }
     }
 
-    /* Clickable Candles */
+    /* 15 Clickable Candles */
     .candle {
       position: absolute;
-      width: 24px;
-      height: 42px;
+      width: 22px;
+      height: 38px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -167,8 +191,8 @@
 
     /* Flame */
     .flame {
-      width: 11px;
-      height: 17px;
+      width: 10px;
+      height: 16px;
       background: radial-gradient(ellipse at bottom, #fff7a1 0%, #ff9800 60%, #ff3d00 100%);
       border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
       box-shadow: 0 0 10px #ff9800, 0 0 18px #ffeb3b;
@@ -185,17 +209,17 @@
     /* Wick */
     .wick {
       width: 2px;
-      height: 4px;
+      height: 3px;
       background: #444;
     }
 
     /* Candle Body with Number Label */
     .candle-body {
-      width: 14px;
-      height: 20px;
+      width: 13px;
+      height: 18px;
       background: linear-gradient(180deg, #ffffff 0%, #ff6fa0 100%);
       border-radius: 3px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       position: relative;
       display: flex;
       align-items: center;
@@ -204,7 +228,7 @@
     }
 
     .candle-num {
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 800;
       color: #6a0036;
       line-height: 1;
@@ -234,30 +258,29 @@
       100% { opacity: 0; transform: translateY(-24px) scale(1.6); }
     }
 
-    /* High Visibility Floating Balloons */
-    .balloon {
+    /* Floating Real Balloons */
+    .balloon-floater {
       position: fixed;
       bottom: -60px;
       pointer-events: none;
-      z-index: 9990; /* In front of everything so fully visible */
-      display: inline-block;
-      user-select: none;
-      filter: drop-shadow(0 8px 16px rgba(220, 60, 120, 0.35));
-      animation: balloonFloat linear forwards;
+      z-index: 3;
+      width: 48px;
+      height: auto;
+      opacity: 0.72;
+      filter: drop-shadow(0 6px 12px rgba(220, 60, 120, 0.25));
+      animation: balloonRise linear forwards;
     }
 
-    @keyframes balloonFloat {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.95; }
-      90% { opacity: 0.9; }
-      100% { transform: translateY(-118vh) rotate(16deg); opacity: 0; }
+    @keyframes balloonRise {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-120vh) rotate(18deg); }
     }
 
     /* Bottom Decorative Card */
     .bottom-festive-card {
       max-width: 420px;
       margin: 10px auto 0 auto;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 20px;
       padding: 12px 16px;
       font-size: 14px;
@@ -273,7 +296,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(30, 10, 25, 0.65);
+      background: rgba(20, 8, 16, 0.65);
       backdrop-filter: blur(5px);
       display: flex;
       justify-content: center;
@@ -282,7 +305,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
-      padding: 16px;
+      padding: 14px;
     }
 
     .modal-backdrop.show {
@@ -293,14 +316,14 @@
     .wish-card-wrapper {
       position: relative;
       width: 100%;
-      max-width: 380px;
-      aspect-ratio: 9 / 13;
-      max-height: 82vh;
+      max-width: 370px;
+      aspect-ratio: 9 / 12.5;
+      max-height: 80vh;
       background-image: url('wish-card.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100% 100%;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
       transform: scale(0.7) rotate(-3deg);
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: flex;
@@ -335,29 +358,31 @@
       transform: scale(0.9);
     }
 
+    /* Strictly Constrained Notebook Writing Area */
     .wish-text-area {
       position: absolute;
-      top: 31%;
-      bottom: 25%;
-      left: 17%;
-      right: 14%;
+      top: 35.5%;
+      bottom: 23%;
+      left: 21%;
+      right: 13%;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       font-family: 'Caveat', cursive, sans-serif;
-      font-size: 19px;
-      line-height: 1.48;
+      font-size: 18px;
+      line-height: 25.5px; /* Locked precisely to match ruled notebook lines */
       font-weight: 700;
-      color: #17375e;
+      color: #0c2b4d;
       text-align: left;
       white-space: pre-line;
       padding-right: 6px;
+      word-break: break-word;
     }
 
     .wish-text-area::-webkit-scrollbar {
       width: 4px;
     }
     .wish-text-area::-webkit-scrollbar-thumb {
-      background: rgba(60, 110, 170, 0.4);
+      background: rgba(50, 100, 160, 0.4);
       border-radius: 4px;
     }
   </style>
@@ -373,119 +398,128 @@
   <h1 class="title">15 candles of wishes for your 15th birthday To my favorite person🌀💘💞</h1>
   <p class="sub-instruction">Meri sunderi ramri mayalu click the candle to blow themm hehe so exciteddddyayaya😝🫀✨💟</p>
 
-  <!-- Top Festive Ribbon/Balloons -->
-  <div class="deco-banner">🎈 🎀 🎈 ✨ 🎈 💖 🎈</div>
+  <!-- Banners Row -->
+  <div class="banner-row">
+    <img src="banner2.png" alt="15" class="side-banner" />
+    <img src="banner1.png" alt="Happy Birthday" class="main-banner" />
+    <img src="banner2.png" alt="15" class="side-banner" />
+  </div>
 
-  <!-- Cake Stage -->
+  <!-- Cake Container -->
   <div class="cake-container">
     <img src="chocolate-cake.png" alt="Chocolate Cake" class="cake-img" />
 
-    <!-- Permanent Glowing '15' Stand (In the Blue Circle Area) -->
+    <!-- Permanent Glowing '15' Stand (Inside Your Marked White Circle) -->
     <div class="big-candle-15">
       <span class="number-candle">1</span>
       <span class="number-candle">5</span>
     </div>
 
-    <!-- 15 Clickable Candles Strictly on Top Surface Oval -->
-    <div class="candle" id="c1" style="top: 25%; left: 33%;" onclick="blowCandle(1)">
+    <!-- 15 Clickable Candles Strictly on Chocolate Top Surface -->
+    <!-- Back Row (Tightly hugging the upper curve) -->
+    <div class="candle" id="c1" style="top: 28%; left: 34%;" onclick="blowCandle(1)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">1</span></div>
     </div>
 
-    <div class="candle" id="c2" style="top: 24%; left: 43%;" onclick="blowCandle(2)">
+    <div class="candle" id="c2" style="top: 27%; left: 43%;" onclick="blowCandle(2)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">2</span></div>
     </div>
 
-    <div class="candle" id="c3" style="top: 24%; left: 53%;" onclick="blowCandle(3)">
+    <div class="candle" id="c3" style="top: 27%; left: 52%;" onclick="blowCandle(3)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">3</span></div>
     </div>
 
-    <div class="candle" id="c4" style="top: 26%; left: 63%;" onclick="blowCandle(4)">
+    <div class="candle" id="c4" style="top: 29%; left: 61%;" onclick="blowCandle(4)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">4</span></div>
     </div>
 
-    <div class="candle" id="c5" style="top: 32%; left: 74%;" onclick="blowCandle(5)">
+    <!-- Right Side Curve -->
+    <div class="candle" id="c5" style="top: 33%; left: 70%;" onclick="blowCandle(5)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">5</span></div>
     </div>
 
-    <div class="candle" id="c6" style="top: 40%; left: 75%;" onclick="blowCandle(6)">
+    <div class="candle" id="c6" style="top: 39%; left: 73%;" onclick="blowCandle(6)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">6</span></div>
     </div>
 
-    <div class="candle" id="c7" style="top: 45%; left: 68%;" onclick="blowCandle(7)">
+    <div class="candle" id="c7" style="top: 44%; left: 66%;" onclick="blowCandle(7)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">7</span></div>
     </div>
 
-    <div class="candle" id="c8" style="top: 46%; left: 58%;" onclick="blowCandle(8)">
+    <!-- Front Row Curve -->
+    <div class="candle" id="c8" style="top: 45%; left: 57%;" onclick="blowCandle(8)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">8</span></div>
     </div>
 
-    <div class="candle" id="c9" style="top: 46%; left: 48%;" onclick="blowCandle(9)">
+    <div class="candle" id="c9" style="top: 45%; left: 47%;" onclick="blowCandle(9)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">9</span></div>
     </div>
 
-    <div class="candle" id="c10" style="top: 46%; left: 38%;" onclick="blowCandle(10)">
+    <div class="candle" id="c10" style="top: 45%; left: 37%;" onclick="blowCandle(10)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">10</span></div>
     </div>
 
-    <div class="candle" id="c11" style="top: 44%; left: 28%;" onclick="blowCandle(11)">
+    <!-- Left Side Curve -->
+    <div class="candle" id="c11" style="top: 43%; left: 28%;" onclick="blowCandle(11)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">11</span></div>
     </div>
 
-    <div class="candle" id="c12" style="top: 38%; left: 22%;" onclick="blowCandle(12)">
+    <div class="candle" id="c12" style="top: 38%; left: 23%;" onclick="blowCandle(12)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">12</span></div>
     </div>
 
-    <div class="candle" id="c13" style="top: 29%; left: 24%;" onclick="blowCandle(13)">
+    <div class="candle" id="c13" style="top: 31%; left: 25%;" onclick="blowCandle(13)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">13</span></div>
     </div>
 
-    <div class="candle" id="c14" style="top: 35%; left: 35%;" onclick="blowCandle(14)">
+    <!-- Middle Surface Positions -->
+    <div class="candle" id="c14" style="top: 36%; left: 36%;" onclick="blowCandle(14)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">14</span></div>
     </div>
 
-    <div class="candle" id="c15" style="top: 38%; left: 47%;" onclick="blowCandle(15)">
+    <div class="candle" id="c15" style="top: 38%; left: 48%;" onclick="blowCandle(15)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
@@ -493,7 +527,7 @@
     </div>
   </div>
 
-  <!-- Bottom Festive Note Area -->
+  <!-- Bottom Message Box -->
   <div class="bottom-festive-card">
     🎂 Blow all 15 candles one by one to unlock every secret wish & promise! 🎁✨
   </div>
@@ -507,7 +541,7 @@
   </div>
 
   <script>
-    // All 15 wishes with escaped quotes to prevent syntax crashes
+    // All 15 wishes and promises with safely escaped quotes
     const wishes = {
       1: "Yaaaayyy happie birthday tooo youuu happie birthday to my most preciouss valuable cherish cutu personn\n\ncutu You blow first candle jii,now na with every candle blow Make a cute wish frm your rarest kindest whole heart😁😁💞🌀jii I pray that whatever you wish should come turee so beautifully ani Im also gonna wish something for you \n\nI WISH THAT LIKE TODAY EVERYDAY OF YOUR LIFE SHOULD FEEL SPECIAL,HAPPIEST,PEACEFUL,BEAUTIFULL FOREVER HEHE becausee your existence is blesingg",
 
@@ -546,7 +580,7 @@
 
       candle.classList.add("blown");
 
-      // Smooth popup reveal
+      // Smooth popup unfold
       setTimeout(() => {
         const textField = document.getElementById("wishText");
         const modal = document.getElementById("wishModal");
@@ -561,21 +595,21 @@
       if (modal) modal.classList.remove("show");
     }
 
-    // High Visibility Floating Balloons
-    const festiveIcons = ["🎈", "🎈", "💖", "✨", "🎀", "🎉", "🎈", "🌸"];
+    // Small, Semi-Transparent Real Balloon Generator
+    const balloonImages = ["b1.png", "b2.png", "b3.png", "b4.png", "b5.png"];
     setInterval(() => {
-      const el = document.createElement("div");
-      el.className = "balloon";
-      el.textContent = festiveIcons[Math.floor(Math.random() * festiveIcons.length)];
-      el.style.left = (Math.random() * 88 + 6) + "vw";
-      el.style.fontSize = (26 + Math.random() * 18) + "px";
-      el.style.animationDuration = (4.5 + Math.random() * 3.5) + "s";
-      document.body.appendChild(el);
+      const b = document.createElement("img");
+      b.className = "balloon-floater";
+      b.src = balloonImages[Math.floor(Math.random() * balloonImages.length)];
+      b.style.left = (Math.random() * 88 + 6) + "vw";
+      b.style.width = (40 + Math.random() * 18) + "px";
+      b.style.animationDuration = (5 + Math.random() * 4) + "s";
+      document.body.appendChild(b);
 
       setTimeout(() => {
-        el.remove();
-      }, 8500);
-    }, 450);
+        b.remove();
+      }, 9500);
+    }, 700);
   </script>
 </body>
 </html>
