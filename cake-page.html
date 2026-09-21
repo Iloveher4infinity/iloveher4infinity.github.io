@@ -81,7 +81,7 @@
       z-index: 5;
     }
 
-    /* Horizontal Banner Area: Normal Horizontal Flow */
+    /* Horizontal Banner Area */
     .banner-stage {
       max-width: 440px;
       margin: 0 auto 14px auto;
@@ -137,19 +137,19 @@
       user-select: none;
     }
 
-    /* Permanent Glowing '15' Stand */
+    /* Permanent Glowing '15' Stand (Centered in the Red Circle Patch) */
     .big-candle-15 {
       position: absolute;
-      top: 36%;
-      right: 28%;
+      top: 42%;
+      left: 63%;
       display: flex;
-      gap: 3px;
+      gap: 4px;
       z-index: 12;
       pointer-events: none;
     }
 
     .number-candle {
-      font-size: 23px;
+      font-size: 26px;
       font-weight: 900;
       color: #fff;
       text-shadow: 0 0 8px #ffb3d9, 0 0 16px #ff4081, 0 0 24px #ff1744;
@@ -163,7 +163,7 @@
       top: -15px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 12px;
+      font-size: 13px;
       filter: drop-shadow(0 0 6px #ffea00);
       animation: flicker 0.15s infinite alternate;
     }
@@ -255,7 +255,7 @@
       100% { opacity: 0; transform: translateY(-24px) scale(1.6); }
     }
 
-    /* Floating Real Balloons */
+    /* Small Floating Real Balloons */
     .balloon-floater {
       position: fixed;
       bottom: -60px;
@@ -355,18 +355,18 @@
       transform: scale(0.9);
     }
 
-    /* Fixed Boundaries: Text is contained within the notebook lines */
+    /* Text Container strictly inside the notebook lines */
     .wish-text-area {
       position: absolute;
       top: 36%;
-      bottom: 37%;           /* High clearance above bottom edge and shells */
+      bottom: 37%;
       left: 21%;
       right: 16%;
-      overflow-y: auto;     /* Smooth scrolling for longer text */
+      overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       font-family: 'Caveat', cursive, sans-serif;
       font-size: 16px;
-      line-height: 22px;    /* Matches notebook lined spacing */
+      line-height: 22px;
       font-weight: 700;
       color: #0d2847;
       text-align: left;
@@ -406,7 +406,7 @@
   <div class="cake-container">
     <img src="chocolate-cake.png" alt="Chocolate Cake" class="cake-img" />
 
-    <!-- Permanent Glowing '15' Stand -->
+    <!-- Permanent Glowing '15' Stand (Inside Your Circled Red Spot) -->
     <div class="big-candle-15">
       <span class="number-candle">1</span>
       <span class="number-candle">5</span>
@@ -441,42 +441,43 @@
       <div class="candle-body"><span class="candle-num">4</span></div>
     </div>
 
-    <div class="candle" id="c5" style="top: 33%; left: 70%;" onclick="blowCandle(5)">
+    <!-- Shifted slightly right to leave clear room for glowing 15 -->
+    <div class="candle" id="c5" style="top: 33%; left: 74%;" onclick="blowCandle(5)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">5</span></div>
     </div>
 
-    <div class="candle" id="c6" style="top: 39%; left: 73%;" onclick="blowCandle(6)">
+    <div class="candle" id="c6" style="top: 41%; left: 74%;" onclick="blowCandle(6)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">6</span></div>
     </div>
 
-    <div class="candle" id="c7" style="top: 44%; left: 66%;" onclick="blowCandle(7)">
+    <div class="candle" id="c7" style="top: 46%; left: 66%;" onclick="blowCandle(7)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">7</span></div>
     </div>
 
-    <div class="candle" id="c8" style="top: 45%; left: 57%;" onclick="blowCandle(8)">
+    <div class="candle" id="c8" style="top: 47%; left: 57%;" onclick="blowCandle(8)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">8</span></div>
     </div>
 
-    <div class="candle" id="c9" style="top: 45%; left: 47%;" onclick="blowCandle(9)">
+    <div class="candle" id="c9" style="top: 47%; left: 47%;" onclick="blowCandle(9)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">9</span></div>
     </div>
 
-    <div class="candle" id="c10" style="top: 45%; left: 37%;" onclick="blowCandle(10)">
+    <div class="candle" id="c10" style="top: 46%; left: 37%;" onclick="blowCandle(10)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
@@ -533,7 +534,6 @@
   </div>
 
   <script>
-    // All 15 wishes and promises
     const wishes = {
       1: "Yaaaayyy happie birthday tooo youuu happie birthday to my most preciouss valuable cherish cutu personn\n\ncutu You blow first candle jii,now na with every candle blow Make a cute wish frm your rarest kindest whole heart😁😁💞🌀jii I pray that whatever you wish should come turee so beautifully ani Im also gonna wish something for you \n\nI WISH THAT LIKE TODAY EVERYDAY OF YOUR LIFE SHOULD FEEL SPECIAL,HAPPIEST,PEACEFUL,BEAUTIFULL FOREVER HEHE becausee your existence is blesingg",
 
@@ -552,7 +552,7 @@
       8: "OHOOOO MY MAYA BLOWING CANDLES KHI KHI KHIUU AIWWWW kaati pyarii jii \n\nDo some more wishes jii do dooo ani...dont worryy hai soon \n\nYou would be blowingg candle Infront of mee we would have so much Fun on your birthday hai hai khi khi SO EXCITED K jii \n\nIm damm sure you would have so much funn In your birthday when we togetherrr I WOULD MAKE SURE THAT YOU ENJOY so \n\nWith this I WISH TO YOU AND ME TO BE TOGETHER AS HUSBAND AND WIFE HAPPIE,JOYFULL,LOVING,CARING,ADMIRING,WINNING CHILL SIGMA SWAG COUPLE FOREVER🧿✨😝😆🤞🤍",
 
       9: "DAAAYUMMM anotherr 9th candle blown yooo hahaaa aapka toh bash aura +999999 sey bhi kyada ho gya na ahahahahahaa😜🤭💫jii \n\nSo noww I WANNA HEARTLY FULLYLOVINGLY RESPECTIVELY PROMISE SOMETHING WITH YOU FOREVER \n\nHehe So after this there would be candles of promises hehe so with this I PROMISE \n\nI promise to be with you not only on easy and fun days but also on hard and unexpected days hehe I promise to be with you in every state,every stage,every up and down,every agee,every universee of lifee✨no matter wht I'm not gonna leave your side I WOULD BE WITH YOU NO MATTER WHT HAPPENS I WOULD NEVER LEAVE YOU🧿🫀🌷❄️🌼",
-      
+
       10: "10th candle also gone hahahaha jiii apney toh candle ko boom 💥 Blastic todh diya hahaha😆10 candle dead haha \n\nSO maya wish this candle I promise \n\nI promisee to do anything for making you smileeee\n\nI would always try hard and more hardest to jus to give you a littleee brightest smile I would try to keep you So muchh lovingly wow happiest,peacefull,perfectly loved,cared,appreciated,adored,admired everything like a queen 👑 becauseeee you are prettiest queenn goddesss my wifey you deserveee everything perfect I PROMISE🌈🎇🫀🌀💫",
 
       11: "Jii you are actuallyy really guud at candlee blowing mayahehhee im amazed and impressed ne tahh\n\nYou should bloww candle ar every birthday im so excited hehe U alsoo should be so excited mayaa \n\nYOU DESERVE IT SO MUCHH NE🤭😽💓🥺💕jii \n\nWith this candle I promiseee hehe \n\nThat I know I do many mistakes ik I'm so bad But sorry \n\nThat Mistakes make you feeel bad 😔 Muwahh muwah cutu I PROMISE I WOULD NEVER make you feel bad \n\nI promise I would never regrett choosing me I would never make you hurtt i wouldd never make you have tears 😭 jii IK \n\nYOU MIGHT BE THINKING IM JUSS LIKE OTHERS but im not like others maya You been with me For year did you seen me matching with bad guys no? Na IM YOUR GUUD BOYY I would never be like them I promise",
@@ -572,7 +572,6 @@
 
       candle.classList.add("blown");
 
-      // Smooth popup unfold
       setTimeout(() => {
         const textField = document.getElementById("wishText");
         const modal = document.getElementById("wishModal");
@@ -587,7 +586,6 @@
       if (modal) modal.classList.remove("show");
     }
 
-    // Floating real balloons
     const balloonImages = ["b1.png", "b2.png", "b3.png", "b4.png", "b5.png"];
     setInterval(() => {
       const b = document.createElement("img");
