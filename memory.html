@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anything for your glossy cutu smilee and laugh 🤭😆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Comic+Neue:wght@700&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #ffdfec 0%, #fff2f8 35%, #fff9e6 70%, #ffebf3 100%);
+      font-family: 'Quicksand', sans-serif;
+      color: #4a154b;
+      padding: 14px 10px 80px 10px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Top Navigation */
+    .top-bar {
+      max-width: 550px;
+      margin: 0 auto 10px auto;
+      text-align: left;
+      position: relative;
+      z-index: 20;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 2px solid #ff4081;
+      background: #fff;
+      color: #e91e63;
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .back-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Headings */
+    .header-box {
+      max-width: 550px;
+      margin: 0 auto 18px auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .main-title {
+      font-size: clamp(21px, 5.8vw, 30px);
+      font-weight: 800;
+      color: #d81b60;
+      line-height: 1.25;
+      text-shadow: 2px 2px 0px #ffe0ed, 4px 4px 0px rgba(255, 105, 180, 0.2);
+      margin-bottom: 8px;
+    }
+
+    .story-intro {
+      background: #fff;
+      border: 2px dashed #ff4081;
+      border-radius: 18px;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #880e4f;
+      line-height: 1.45;
+      box-shadow: 0 6px 16px rgba(255, 64, 129, 0.15);
+      margin-bottom: 16px;
+    }
+
+    /* Funny Comic Stats Meter */
+    .stats-dashboard {
+      display: flex;
+      justify-content: space-around;
+      gap: 6px;
+      margin: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: #ffebee;
+      border: 2px solid #ff5252;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #c62828;
+    }
+    .stat-pill.brain {
+      background: #e8f5e9;
+      border-color: #4caf50;
+      color: #2e7d32;
+    }
+    .stat-pill.aura {
+      background: #ede7f6;
+      border-color: #7e57c2;
+      color: #512da8;
+    }
+
+    /* Comic Storyboard Container */
+    .comic-container {
+      max-width: 550px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Comic Scene Panels */
+    .scene-panel {
+      position: relative;
+      background: #ffffff;
+      border: 3px solid #2c1a32;
+      border-radius: 22px;
+      padding: 18px 16px;
+      box-shadow: 6px 6px 0px #2c1a32;
+      transition: transform 0.2s ease;
+      text-align: left;
+    }
+
+    .scene-panel:active {
+      transform: translateY(-2px);
+    }
+
+    .scene-tag {
+      position: absolute;
+      top: -14px;
+      left: 18px;
+      padding: 4px 14px;
+      background: #ffeb3b;
+      border: 2px solid #2c1a32;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 900;
+      color: #2c1a32;
+      text-transform: uppercase;
+      box-shadow: 2px 2px 0px #2c1a32;
+    }
+
+    .scene-body {
+      margin-top: 6px;
+      font-size: 15.5px;
+      line-height: 1.55;
+      font-weight: 700;
+      color: #3b1740;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    /* Highlight Quotes & Dialogue */
+    .shout-box {
+      background: #fff8e1;
+      border: 2px solid #ffb300;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 10px 0 6px 0;
+      font-weight: 800;
+      color: #e65100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wish-box {
+      background: #fce4ec;
+      border: 2px dashed #e91e63;
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin: 10px 0 6px 0;
+      font-weight: 800;
+      color: #c2185b;
+    }
+
+    /* Action Re-enactment Button */
+    .action-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 2px solid #2c1a32;
+      background: #ff4081;
+      color: #fff;
+      font-family: 'Comic Neue', 'Quicksand', sans-serif;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px #2c1a32;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .action-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #2c1a32;
+    }
+
+    /* Comic Impact Popup */
+    .comic-alert {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #fff9c4;
+      border: 3px dashed #d50000;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #b71c1c;
+      animation: popShake 0.4s ease-in-out;
+    }
+
+    @keyframes popShake {
+      0% { transform: scale(0.8) rotate(-4deg); opacity: 0; }
+      50% { transform: scale(1.05) rotate(3deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    /* Final Moral Panel */
+    .moral-panel {
+      background: linear-gradient(135deg, #fff 0%, #fff0f7 100%);
+      border: 3px solid #ff4081;
+      box-shadow: 6px 6px 0px #ff4081;
+    }
+
+    .moral-tag {
+      background: #ff4081;
+      color: #fff;
+      border: 2px solid #2c1a32;
+    }
+
+    /* Floating Funny Reactions */
+    .floating-fun {
+      position: fixed;
+      bottom: -40px;
+      font-size: 24px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.65;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <div class="top-bar">
+    <a href="hold.html?from=memory" class="back-btn">⬅ Back to Surprises 💖</a>
+  </div>
+
+  <!-- Main Header & Intro -->
+  <div class="header-box">
+    <h1 class="main-title">Anything for your glossy cutu smilee and laugh🤭😆🫰</h1>
+
+    <div class="story-intro">
+      So HAHAHAA😂😂🌀""""funn timeeeeee""" hahaha. CUTUUU TO MAKE YOU LUAGH IM GOING TO TELL A FUNNY STORY OF US KHI KHI KHI&lt;3 
+
+SO Listen carefully this my loveee🧿🧿🧿🧿😝🌀😸🤭😂🌀🍀🫀💕
+    </div>
+
+    <!-- Funny Live Meters -->
+    <div class="stats-dashboard">
+      <div class="stat-pill">Mom Anger: 100% 📢</div>
+      <div class="stat-pill brain">Husband Brain: 0% 🧠❌</div>
+      <div class="stat-pill aura">Love For Wifey: +999,999 🚀</div>
+    </div>
+  </div>
+
+  <!-- Comic Story Strip -->
+  <div class="comic-container">
+
+    <!-- PART 1 -->
+    <div class="scene-panel">
+      <div class="scene-tag">🌸 PARTT 1: us Peaceful Couple chillingg 🌸😌</div>
+      <div class="scene-body">
+Ye baat hey tabki haha jabb qe were talkingg, giggling, laughingg like the cute sigma swag couple we areee always hahha
+
+Tabhiii pata heyy Disruption: sudden dangerousss mom voice in the house:
+      </div>
+      <div class="shout-box">
+        <span>📢💀</span>
+        <span>"OIII KAAM KAR LE JARA KAAM HEY NAI KYAA"</span>
+      </div>
+    </div>
+
+    <!-- PART 2 -->
+    <div class="scene-panel">
+      <div class="scene-tag">😈 PARTTT 2: My mom Angerr and Cutu's sweetestt Wish😈</div>
+      <div class="scene-body">
+I was coming all tried from getting scolded by momm and working harddd🥺
+
+I tell my wifeyyy everythingg
+
+And shee herr so lovable adorableee reaction: She giggles cutely and drops the evil wishh uhahah:-
+      </div>
+      <div class="wish-box">
+        😝 "I wish your mom beat you today 😝"
+      </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div class="scene-panel">
+      <div class="scene-tag">🧠❌ PARTT 3: my Brain stoppedddd working</div>
+      <div class="scene-body">
+my Brain stoppedddd working because of your tooo much gorgoesss Enchanting Perfectt divine beautiful beautyy🤭😽🧠❌ 
+
+I thought:----
+
+"Wair Did juss my preciousss wifey just makee a wish? A WISH FROM MY PRIYE RAMRI MAYAA?!"🤭🤔
+
+"A guuddd boy alwayss wants his wifey's wish should be unfulfiledd haii" so😆🥺
+
+Meraaa Logic: 0% | Dedication: 10,000%
+      </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div class="scene-panel">
+      <div class="scene-tag">💥 PARTTT 4: The Balconyyy mey headshott🤪🏃‍♂️💨💥</div>
+      <div class="scene-body">
+I so runn like flashhh k hahaah to the balcony where my mom was doing her ownn work Completey unawareee of his sons next moveee hahahaa😂
+
+I nill down my headd infront of her and said 
+
+"MOM MAROO MUJHEY JALDI MARO HIT ME ON HEADD FASTLY"😆pagall right? Hahahaha anything for youuu
+
+meanwhileeee Mom's brain: Loading 0%..."KAHI ISKO KISI GHOST NE TOH NAI PAKAD LIYAA"👁️👄👁️
+      </div>
+
+      <!-- Interactive Fun Button -->
+      <button class="action-btn" onclick="triggerBalconyDrama()">
+        💥 Tap to see Mom's Exact Reaction! 👁️👄👁️
+      </button>
+
+      <div class="comic-alert" id="balconyAlert">
+        🚨 MOM'S INTERNAL ERROR 404: "Son offered head for sacrifice on balcony. Brain cell count: ZERO. Calling an exorcist immediately!" 🤣👻
+      </div>
+    </div>
+
+    <!-- PART 5 -->
+    <div class="scene-panel moral-panel">
+      <div class="scene-tag moral-tag">🏆🤣 PARTTTT 5 & The Moral of the Story</div>
+      <div class="scene-body">
+SO I CAME BACK WITH HEADSHOT HAHAHA BACK TO TO YOU ANI YAAAYY MISSION COMPLETED hahaha your wishh is completeeddd hehehe😆
+
+THE MORAL OF THE STORYYY
+
+----Never tell thiss pagal kukur to get beaten he 
+
+Wouldd get beaten juss to make you smilee juss to make your wish completeeee for your happinesssss anythinggg MISS MY EVERYTHING
+
+I JUSS LOVE YOU MORE THAN INFINITY FOREVER🧿🧿🧿🧿😆🌀😂🤪💕🌀
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Dramatic Balcony Reaction Trigger
+    function triggerBalconyDrama() {
+      const alertBox = document.getElementById("balconyAlert");
+      alertBox.style.display = "block";
+
+      // Small screen vibration effect
+      document.body.style.transform = "rotate(1deg)";
+      setTimeout(() => { document.body.style.transform = "rotate(-1deg)"; }, 80);
+      setTimeout(() => { document.body.style.transform = "rotate(0.5deg)"; }, 160);
+      setTimeout(() => { document.body.style.transform = "rotate(0deg)"; }, 240);
+    }
+
+    // Floating comic laughs & ghost icons
+    const funIcons = ["😂", "👻", "🏃‍♂️", "💥", "🤣", "🧿", "🤪", "💀"];
+    setInterval(() => {
+      const f = document.createElement("div");
+      f.className = "floating-fun";
+      f.textContent = funIcons[Math.floor(Math.random() * funIcons.length)];
+      f.style.left = (Math.random() * 90 + 5) + "vw";
+      f.style.fontSize = (Math.random() * 16 + 22) + "px";
+      f.style.animationDuration = (Math.random() * 3 + 4.5) + "s";
+      document.body.appendChild(f);
+
+      setTimeout(() => f.remove(), 7500);
+    }, 550);
+  </script>
+</body>
+  </html>
+  
