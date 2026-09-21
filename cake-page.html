@@ -18,22 +18,22 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(180deg, #ffd7e8 0%, #fff0f7 50%, #ffd0e6 100%);
+      background: linear-gradient(180deg, #ffd6e8 0%, #fff0f7 50%, #ffd0e6 100%);
       font-family: 'Quicksand', sans-serif;
       color: #6a0f70;
       text-align: center;
-      padding: 16px 10px 60px 10px;
+      padding: 16px 8px 60px 8px;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Back Button */
+    /* Top Navigation */
     .top-bar {
       max-width: 500px;
-      margin: 0 auto 12px auto;
+      margin: 0 auto 10px auto;
       text-align: left;
       position: relative;
-      z-index: 10;
+      z-index: 20;
     }
 
     .back-btn {
@@ -66,15 +66,29 @@
       margin: 4px auto 8px auto;
       max-width: 480px;
       padding: 0 10px;
+      position: relative;
+      z-index: 5;
     }
 
     .sub-instruction {
       font-size: 14px;
       font-weight: 700;
       color: #9c336b;
-      margin-bottom: 22px;
+      margin-bottom: 12px;
       padding: 0 14px;
       line-height: 1.45;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Cute Decorative Floating Elements Above & Below Cake */
+    .deco-banner {
+      font-size: 26px;
+      margin: 4px 0 12px 0;
+      user-select: none;
+      position: relative;
+      z-index: 5;
+      filter: drop-shadow(0 4px 8px rgba(255, 100, 160, 0.25));
     }
 
     /* Cake Stage */
@@ -82,10 +96,11 @@
       position: relative;
       width: 100%;
       max-width: 420px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto 20px auto;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 6;
     }
 
     .cake-img {
@@ -97,22 +112,22 @@
       user-select: none;
     }
 
-    /* Permanent Glowing '15' Candles */
+    /* Permanent Glowing '15' Stand */
     .big-candle-15 {
       position: absolute;
-      top: 38%;
-      right: 28%;
+      top: 32%;
+      right: 27%;
       display: flex;
-      gap: 4px;
-      z-index: 6;
+      gap: 3px;
+      z-index: 10;
       pointer-events: none;
     }
 
     .number-candle {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
       color: #fff;
-      text-shadow: 0 0 8px #ffb3d9, 0 0 16px #ff4081, 0 0 22px #ff1744;
+      text-shadow: 0 0 8px #ffb3d9, 0 0 16px #ff4081, 0 0 24px #ff1744;
       position: relative;
       animation: candleGlow 1.8s ease-in-out infinite alternate;
     }
@@ -130,19 +145,19 @@
 
     @keyframes candleGlow {
       0% { text-shadow: 0 0 8px #ffb3d9, 0 0 14px #ff4081; }
-      100% { text-shadow: 0 0 12px #ffe6f2, 0 0 24px #ff4081, 0 0 30px #ff0055; }
+      100% { text-shadow: 0 0 12px #ffe6f2, 0 0 24px #ff4081, 0 0 32px #ff0055; }
     }
 
-    /* The 15 Clickable Candles */
+    /* Clickable Candles */
     .candle {
       position: absolute;
-      width: 22px;
+      width: 24px;
       height: 42px;
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      z-index: 8;
+      z-index: 15;
       transition: transform 0.2s ease;
     }
 
@@ -150,10 +165,10 @@
       transform: scale(0.9) !important;
     }
 
-    /* The Flame */
+    /* Flame */
     .flame {
       width: 11px;
-      height: 18px;
+      height: 17px;
       background: radial-gradient(ellipse at bottom, #fff7a1 0%, #ff9800 60%, #ff3d00 100%);
       border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
       box-shadow: 0 0 10px #ff9800, 0 0 18px #ffeb3b;
@@ -177,14 +192,15 @@
     /* Candle Body with Number Label */
     .candle-body {
       width: 14px;
-      height: 22px;
-      background: linear-gradient(180deg, #ffffff 0%, #ff80ab 100%);
+      height: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #ff6fa0 100%);
       border-radius: 3px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .candle-num {
@@ -195,7 +211,7 @@
       pointer-events: none;
     }
 
-    /* Blown Out State */
+    /* Blown State */
     .candle.blown .flame {
       opacity: 0;
       transform: translateY(-8px) scale(0.2);
@@ -204,7 +220,7 @@
     .smoke {
       position: absolute;
       top: -6px;
-      font-size: 13px;
+      font-size: 14px;
       opacity: 0;
       pointer-events: none;
     }
@@ -218,30 +234,51 @@
       100% { opacity: 0; transform: translateY(-24px) scale(1.6); }
     }
 
-    /* Floating Festive Balloons */
+    /* High Visibility Floating Balloons */
     .balloon {
       position: fixed;
-      bottom: -100px;
+      bottom: -60px;
       pointer-events: none;
-      z-index: 1;
+      z-index: 9990; /* In front of everything so fully visible */
+      display: inline-block;
+      user-select: none;
+      filter: drop-shadow(0 8px 16px rgba(220, 60, 120, 0.35));
       animation: balloonFloat linear forwards;
     }
 
     @keyframes balloonFloat {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
-      100% { transform: translateY(-120vh) rotate(15deg); opacity: 0; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.95; }
+      90% { opacity: 0.9; }
+      100% { transform: translateY(-118vh) rotate(16deg); opacity: 0; }
     }
 
-    /* Wish Card Modal */
+    /* Bottom Decorative Card */
+    .bottom-festive-card {
+      max-width: 420px;
+      margin: 10px auto 0 auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #be2e72;
+      box-shadow: 0 4px 15px rgba(255, 120, 160, 0.2);
+      border: 1px dashed #ff9ec7;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Wish Note Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(40, 10, 30, 0.55);
-      backdrop-filter: blur(4px);
+      background: rgba(30, 10, 25, 0.65);
+      backdrop-filter: blur(5px);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 99999;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
@@ -263,7 +300,7 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100% 100%;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
       transform: scale(0.7) rotate(-3deg);
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: flex;
@@ -274,13 +311,12 @@
       transform: scale(1) rotate(0deg);
     }
 
-    /* Close Button (top-right of the card) */
     .card-close-btn {
       position: absolute;
-      top: 6px;
-      right: 8px;
-      width: 32px;
-      height: 32px;
+      top: 10px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 2px solid #fff;
       background: #ff4081;
@@ -292,25 +328,24 @@
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      z-index: 20;
+      z-index: 30;
     }
 
     .card-close-btn:active {
       transform: scale(0.9);
     }
 
-    /* Scrollable Text inside Note Lines */
     .wish-text-area {
       position: absolute;
-      top: 32%;
-      bottom: 26%;
+      top: 31%;
+      bottom: 25%;
       left: 17%;
       right: 14%;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       font-family: 'Caveat', cursive, sans-serif;
       font-size: 19px;
-      line-height: 1.5;
+      line-height: 1.48;
       font-weight: 700;
       color: #17375e;
       text-align: left;
@@ -338,121 +373,129 @@
   <h1 class="title">15 candles of wishes for your 15th birthday To my favorite person🌀💘💞</h1>
   <p class="sub-instruction">Meri sunderi ramri mayalu click the candle to blow themm hehe so exciteddddyayaya😝🫀✨💟</p>
 
-  <!-- Cake Container -->
+  <!-- Top Festive Ribbon/Balloons -->
+  <div class="deco-banner">🎈 🎀 🎈 ✨ 🎈 💖 🎈</div>
+
+  <!-- Cake Stage -->
   <div class="cake-container">
     <img src="chocolate-cake.png" alt="Chocolate Cake" class="cake-img" />
 
-    <!-- Permanent Glowing '15' Candles -->
+    <!-- Permanent Glowing '15' Stand (In the Blue Circle Area) -->
     <div class="big-candle-15">
       <span class="number-candle">1</span>
       <span class="number-candle">5</span>
     </div>
 
-    <!-- 15 Clickable Birthday Candles (Numbered & positioned around the cake top) -->
-    <div class="candle" id="c1" style="top: 29%; left: 34%;" onclick="blowCandle(1)">
+    <!-- 15 Clickable Candles Strictly on Top Surface Oval -->
+    <div class="candle" id="c1" style="top: 25%; left: 33%;" onclick="blowCandle(1)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">1</span></div>
     </div>
 
-    <div class="candle" id="c2" style="top: 27%; left: 44%;" onclick="blowCandle(2)">
+    <div class="candle" id="c2" style="top: 24%; left: 43%;" onclick="blowCandle(2)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">2</span></div>
     </div>
 
-    <div class="candle" id="c3" style="top: 28%; left: 54%;" onclick="blowCandle(3)">
+    <div class="candle" id="c3" style="top: 24%; left: 53%;" onclick="blowCandle(3)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">3</span></div>
     </div>
 
-    <div class="candle" id="c4" style="top: 32%; left: 64%;" onclick="blowCandle(4)">
+    <div class="candle" id="c4" style="top: 26%; left: 63%;" onclick="blowCandle(4)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">4</span></div>
     </div>
 
-    <div class="candle" id="c5" style="top: 39%; left: 72%;" onclick="blowCandle(5)">
+    <div class="candle" id="c5" style="top: 32%; left: 74%;" onclick="blowCandle(5)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">5</span></div>
     </div>
 
-    <div class="candle" id="c6" style="top: 48%; left: 74%;" onclick="blowCandle(6)">
+    <div class="candle" id="c6" style="top: 40%; left: 75%;" onclick="blowCandle(6)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">6</span></div>
     </div>
 
-    <div class="candle" id="c7" style="top: 57%; left: 69%;" onclick="blowCandle(7)">
+    <div class="candle" id="c7" style="top: 45%; left: 68%;" onclick="blowCandle(7)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">7</span></div>
     </div>
 
-    <div class="candle" id="c8" style="top: 62%; left: 59%;" onclick="blowCandle(8)">
+    <div class="candle" id="c8" style="top: 46%; left: 58%;" onclick="blowCandle(8)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">8</span></div>
     </div>
 
-    <div class="candle" id="c9" style="top: 63%; left: 47%;" onclick="blowCandle(9)">
+    <div class="candle" id="c9" style="top: 46%; left: 48%;" onclick="blowCandle(9)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">9</span></div>
     </div>
 
-    <div class="candle" id="c10" style="top: 61%; left: 36%;" onclick="blowCandle(10)">
+    <div class="candle" id="c10" style="top: 46%; left: 38%;" onclick="blowCandle(10)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">10</span></div>
     </div>
 
-    <div class="candle" id="c11" style="top: 55%; left: 26%;" onclick="blowCandle(11)">
+    <div class="candle" id="c11" style="top: 44%; left: 28%;" onclick="blowCandle(11)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">11</span></div>
     </div>
 
-    <div class="candle" id="c12" style="top: 46%; left: 22%;" onclick="blowCandle(12)">
+    <div class="candle" id="c12" style="top: 38%; left: 22%;" onclick="blowCandle(12)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">12</span></div>
     </div>
 
-    <div class="candle" id="c13" style="top: 36%; left: 25%;" onclick="blowCandle(13)">
+    <div class="candle" id="c13" style="top: 29%; left: 24%;" onclick="blowCandle(13)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">13</span></div>
     </div>
 
-    <div class="candle" id="c14" style="top: 40%; left: 40%;" onclick="blowCandle(14)">
+    <div class="candle" id="c14" style="top: 35%; left: 35%;" onclick="blowCandle(14)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">14</span></div>
     </div>
 
-    <div class="candle" id="c15" style="top: 49%; left: 51%;" onclick="blowCandle(15)">
+    <div class="candle" id="c15" style="top: 38%; left: 47%;" onclick="blowCandle(15)">
       <div class="flame"></div>
       <div class="smoke">💨</div>
       <div class="wick"></div>
       <div class="candle-body"><span class="candle-num">15</span></div>
     </div>
+  </div>
+
+  <!-- Bottom Festive Note Area -->
+  <div class="bottom-festive-card">
+    🎂 Blow all 15 candles one by one to unlock every secret wish & promise! 🎁✨
   </div>
 
   <!-- Wish Note Modal Popup -->
@@ -464,69 +507,75 @@
   </div>
 
   <script>
-    // The exact 15 wishes & promises
+    // All 15 wishes with escaped quotes to prevent syntax crashes
     const wishes = {
       1: "Yaaaayyy happie birthday tooo youuu happie birthday to my most preciouss valuable cherish cutu personn\n\ncutu You blow first candle jii,now na with every candle blow Make a cute wish frm your rarest kindest whole heart😁😁💞🌀jii I pray that whatever you wish should come turee so beautifully ani Im also gonna wish something for you \n\nI WISH THAT LIKE TODAY EVERYDAY OF YOUR LIFE SHOULD FEEL SPECIAL,HAPPIEST,PEACEFUL,BEAUTIFULL FOREVER HEHE becausee your existence is blesingg",
-      
-      2: "2nd Candle alsoo Blownm uuuhuuuuu hahaha\n\nAapkey birthday mey toh bhott maaja aara hey yyeyyeyeeee\n\nJii make a wish. Make a wishhh khi khi \n\nI alsoo making wish that yourr all your futuree dreams that you planned Should be completed in most pleasing Magicall wayy Becausee meri rupsana jii deserve everything well ani normal blessed🤞💙🌸"
-      
+
+      2: "2nd Candle alsoo Blownm uuuhuuuuu hahaha\n\nAapkey birthday mey toh bhott maaja aara hey yyeyyeyeeee\n\nJii make a wish. Make a wishhh khi khi \n\nI alsoo making wish that yourr all your futuree dreams that you planned Should be completed in most pleasing Magicall wayy Becausee meri rupsana jii deserve everything well ani normal blessed🤞💙🌸",
+
       3: "oii baalee bale oyee so much balee balee Hehehe 3rd canlde Also poped up jiii \n\nI ACTUALLY LOVE THE DAY,EXACT MOMENT YOU WERE BORN KHI KHI ohooo ji wish wish\n\nAleee aap mere pyar me pad kar wish karna bhul gayee😝but u didn't forget hehe Because i can forget my name, myself but i cant forget anything about u hehe so mayaa WISH WISH hhehe \n\nI alsoo wishingg that Youu eat,drink,care,smileee alot you eat without worrying about being fat without anything jus eatt ANI BE HEALTHIEST STRONGEST PROTECTED WHOLE LIFEE💫✨🌺",
-      
+
       4: "oh my god ohh my goddd 4th candlee also blown yaayyayayayaa jii \n\nyk While blowing this candle ani while wishing smiling rn you looking so attractivee wholsomee ke so cutu aiwwwww How u smiling so brightest so heart-melting Im gonna lost my memory becauseeee you so beautiful hehe jii so so OK WISHH WISH MAYAA\n\nI also wishh that God should make all pain all sorrows all worriess all badness bad bad peoples,things,happening,luck All bad things should be alot alot far frm youu \n\nAni malai meri maya ko Jun jasto ankha ma Ashu,dukha na dekhnu paros hehe foreverr hehe🧿💓🌀",
-      
-      5: "jii jii dont blow candle by juss tapping mayaa do \"fuuuuu\" 🌬️ also hehe like real cake but Be careful kahi apka fuu karna mere dill pe na lag jaye Aur aap itney Haseenn ho Ki bash mera dill ruk jayega hehe ye dill dhadakta bhu apkey naam sey hey aur Aap hi ki Khubhsurati dekh Dhadkana hi bhull jayega naa🤭🍀JII WISH WISH SOME MORE IM PRAYING YOUR WISHESS TO BE COMPLETED HEHE wish wish mayaa \n\nI WISH MY WISHES TO BE COMPLETED BUT IM PRAYING YOUR WISHES TO BE COMPLETED FIRST because ofcourse your wishes,you have more valueee you so Valuableee so Much favorite to me🌻🌻🧿🧿🧿🧿✨💌",
-      
-      6: "lessgooo haha another birthday candlee blownnn uuhuuuu timilai tha chha Malai tah Yha khushi le timro haath samayi nacham nacham bhayo Ani why u so far umm🥺🫶hehhe Otte so AGAIN WISH SOME MORE MAYA you jusss wish more more I will make your dream,wishes come truee by Begging infront of god dont worry sweetie😜🤭💟I WISH WHENEVER YOU WEAK GOD yet all the time god should protect youu ani give you strength to fight with every problems wni Remind you that you are not alone hehe Me Ma kukur sadhai timi sanga at your every State of life admiring youuuhehe"
-      
+
+      5: "jii jii dont blow candle by juss tapping mayaa do 'fuuuuu' 🌬️ also hehe like real cake but Be careful kahi apka fuu karna mere dill pe na lag jaye Aur aap itney Haseenn ho Ki bash mera dill ruk jayega hehe ye dill dhadakta bhu apkey naam sey hey aur Aap hi ki Khubhsurati dekh Dhadkana hi bhull jayega naa🤭🍀JII WISH WISH SOME MORE IM PRAYING YOUR WISHESS TO BE COMPLETED HEHE wish wish mayaa \n\nI WISH MY WISHES TO BE COMPLETED BUT IM PRAYING YOUR WISHES TO BE COMPLETED FIRST because ofcourse your wishes,you have more valueee you so Valuableee so Much favorite to me🌻🌻🧿🧿🧿🧿✨💌",
+
+      6: "lessgooo haha another birthday candlee blownnn uuhuuuu timilai tha chha Malai tah Yha khushi le timro haath samayi nacham nacham bhayo Ani why u so far umm🥺🫶hehhe Otte so AGAIN WISH SOME MORE MAYA you jusss wish more more I will make your dream,wishes come truee by Begging infront of god dont worry sweetie😜🤭💟I WISH WHENEVER YOU WEAK GOD yet all the time god should protect youu ani give you strength to fight with every problems wni Remind you that you are not alone hehe Me Ma kukur sadhai timi sanga at your every State of life admiring youuuhehe",
+
       7: "aiwwwwwwww jii wowowww half candles blown Im so soooo muchh proud of youu IM LOVE EVERYTHING YOU DO \n\nI LOVE EVERY SINGLE DETAILS ABOUT U hehe \n\nSo WISH NEXT THING RUPSANA JII WISH WISH \n\nAnd I also wish that In lifee there everyone every momentt ani Universe should be so kindest,sweetest cherishing you hehe ani Everyone should feel greatfull to have you, they should make you smile,understand you,stand with you and appreciate,adore your every work,actions,thoughts always..Like I DO MUWAAAHH😽❤️❣️💕💌",
-      
+
       8: "OHOOOO MY MAYA BLOWING CANDLES KHI KHI KHIUU AIWWWW kaati pyarii jii \n\nDo some more wishes jii do dooo ani...dont worryy hai soon \n\nYou would be blowingg candle Infront of mee we would have so much Fun on your birthday hai hai khi khi SO EXCITED K jii \n\nIm damm sure you would have so much funn In your birthday when we togetherrr I WOULD MAKE SURE THAT YOU ENJOY so \n\nWith this I WISH TO YOU AND ME TO BE TOGETHER AS HUSBAND AND WIFE HAPPIE,JOYFULL,LOVING,CARING,ADMIRING,WINNING CHILL SIGMA SWAG COUPLE FOREVER🧿✨😝😆🤞🤍",
-     
+
       9: "DAAAYUMMM anotherr 9th candle blown yooo hahaaa aapka toh bash aura +999999 sey bhi kyada ho gya na ahahahahahaa😜🤭💫jii \n\nSo noww I WANNA HEARTLY FULLYLOVINGLY RESPECTIVELY PROMISE SOMETHING WITH YOU FOREVER \n\nHehe So after this there would be candles of promises hehe so with this I PROMISE \n\nI promise to be with you not only on easy and fun days but also on hard and unexpected days hehe I promise to be with you in every state,every stage,every up and down,every agee,every universee of lifee✨no matter wht I'm not gonna leave your side I WOULD BE WITH YOU NO MATTER WHT HAPPENS I WOULD NEVER LEAVE YOU🧿🫀🌷❄️🌼",
-      
-        10: "10th candle also gone hahahaha jiii apney toh candle ko boom 💥 Blastic todh diya hahaha😆10 candle dead haha \n\nSO maya wish this candle I promise \n\nI promisee to do anything for making you smileeee\n\nI would always try hard and more hardest to jus to give you a littleee brightest smile I would try to keep you So muchh lovingly wow happiest,peacefull,perfectly loved,cared,appreciated,adored,admired everything like a queen 👑 becauseeee you are prettiest queenn goddesss my wifey you deserveee everything perfect I PROMISE🌈🎇🫀🌀💫",
-     
-        11: "Jii you are actuallyy really guud at candlee blowing mayahehhee im amazed and impressed ne tahh\n\nYou should bloww candle ar every birthday im so excited hehe U alsoo should be so excited mayaa \n\nYOU DESERVE IT SO MUCHH NE🤭😽💓🥺💕jii \n\nWith this candle I promiseee hehe \n\nThat I know I do many mistakes ik I'm so bad But sorry \n\nThat Mistakes make you feeel bad 😔 Muwahh muwah cutu I PROMISE I WOULD NEVER make you feel bad \n\nI promise I would never regrett choosing me I would never make you hurtt i wouldd never make you have tears 😭 jii IK \n\nYOU MIGHT BE THINKING IM JUSS LIKE OTHERS but im not like others maya You been with me For year did you seen me matching with bad guys no? Na IM YOUR GUUD BOYY I would never be like them I promise",
-    
-        12: "jii ne Seeing you smiling at your birthdayy seeing you being born for me lmseeing you poping candlee Seeing you having cakee is so Much juss seeeing you nai so prettiest Fascinating jii Aiwwww Im having tears of happiness ne hehe💟SO WITH \n\nThis candlee I promise you that I would Understand youu so much Even if it's your silent I WOULD HEAR YOUR SILENT THE LOUDEST MAYA \n\nYou sayy I might slap you for your mistake But why no never I would do that why would i Even be mad at you for your mistake when i understand you that you didn't do any mistakess intentionally they are mistake it's okieeee Im still proud of you so muchhhhehe Pls dont think that khi khi ani I WOULD CHEER YOU To win in life yaaaaayya jii you can do it jii my rupsana jii eaati dheraii strongest inteligent smartest you are I WOULD ALWAYS CLAP FOR YOU,CHEER YOU,UNDERSTAND YOU and Feel proud of your EVEYTHING TELENT For everrrr😸⛄🤍♥️💘",
-      
+
+      10: "10th candle also gone hahahaha jiii apney toh candle ko boom 💥 Blastic todh diya hahaha😆10 candle dead haha \n\nSO maya wish this candle I promise \n\nI promisee to do anything for making you smileeee\n\nI would always try hard and more hardest to jus to give you a littleee brightest smile I would try to keep you So muchh lovingly wow happiest,peacefull,perfectly loved,cared,appreciated,adored,admired everything like a queen 👑 becauseeee you are prettiest queenn goddesss my wifey you deserveee everything perfect I PROMISE🌈🎇🫀🌀💫",
+
+      11: "Jii you are actuallyy really guud at candlee blowing mayahehhee im amazed and impressed ne tahh\n\nYou should bloww candle ar every birthday im so excited hehe U alsoo should be so excited mayaa \n\nYOU DESERVE IT SO MUCHH NE🤭😽💓🥺💕jii \n\nWith this candle I promiseee hehe \n\nThat I know I do many mistakes ik I'm so bad But sorry \n\nThat Mistakes make you feeel bad 😔 Muwahh muwah cutu I PROMISE I WOULD NEVER make you feel bad \n\nI promise I would never regrett choosing me I would never make you hurtt i wouldd never make you have tears 😭 jii IK \n\nYOU MIGHT BE THINKING IM JUSS LIKE OTHERS but im not like others maya You been with me For year did you seen me matching with bad guys no? Na IM YOUR GUUD BOYY I would never be like them I promise",
+
+      12: "jii ne Seeing you smiling at your birthdayy seeing you being born for me lmseeing you poping candlee Seeing you having cakee is so Much juss seeeing you nai so prettiest Fascinating jii Aiwwww Im having tears of happiness ne hehe💟SO WITH \n\nThis candlee I promise you that I would Understand youu so much Even if it's your silent I WOULD HEAR YOUR SILENT THE LOUDEST MAYA \n\nYou sayy I might slap you for your mistake But why no never I would do that why would i Even be mad at you for your mistake when i understand you that you didn't do any mistakess intentionally they are mistake it's okieeee Im still proud of you so muchhhhehe Pls dont think that khi khi ani I WOULD CHEER YOU To win in life yaaaaayya jii you can do it jii my rupsana jii eaati dheraii strongest inteligent smartest you are I WOULD ALWAYS CLAP FOR YOU,CHEER YOU,UNDERSTAND YOU and Feel proud of your EVEYTHING TELENT For everrrr😸⛄🤍♥️💘",
+
       13: "13th candleeee yaaaaaaaaaa jii yo your birthday is not juss a birthday for me irt's so soooooo muchh special k so soo muchh juss endlessly sweetly beautifully speciall day for me ne MUUUHEHHEE with this candle I PROMISE\n\nThat I would be a better best perfect husband for you jii \n\nI wouldd never stop bring more ani more better for you\n\nIf i do mistake tell me i would apologise ani never do that againnn,I wanna be a bestest husband everr\n\nI would do anything to make you feel guud with me I would never stop trying in my whole lifee\n\nBEING BEST HUSBAND FOR YOU IS MY FIRST GOAL OF LIFE because you are already sooo bestestestest perfectly cutestt wowowst wifeyy I PROMISE HEHE🧿🫂😝❣️💌🎉",
-      
+
       14: "14th candlee poped hahaha yaayayayaa jii aboiii ne tah jii like timi sira kura garda gardai wishes,promises garda gardai It's been i came last candle ne haha Jii saaccchyi this is the magic of you when I be with you nee that time goes so fast.time my enemy ne hehe I WISH IT STOPS THAT MY HEART MY EYES MY LIFE ALL SHOULD STOP AT YOU looking at youuu forever hehehe \n\nSo WITH THIS CANDLE I FULLYLOVINGLY DEEPLY SINCERELY PROFOUNDLY WHOLEHEARTLY REALLY PURELY PROMISE THAT \n\nI WILL MARRY YOUUU YESSS🧿💕💫🌀😭no matter wht You gonna be my wife I WOULD BE RICH SUCCESFULL FOR YOU AND MARRY YOU AND GIVE YOU FUTURE SO BRIGHT SO PEACEFULL WOWOWST JII I PROMISE WE WILL MARRY AND BEBLESSEDALIVEMARRIEDTOGETHER FOREVER YAAAYAYAA🧿🧿🧿🧿😝💌🎉🌀💕🌀",
-      
+
       15: "yaaaaayayayayaa last candle hahahaa jii I choose exactly 15 candle because it's your 15rh birthday ne hhehe so happiestestestest so exciteddd uuhuuu jii ANI\n\nWISH LAST CANDLE I WISHH TO SEE YOU HAPPIEE BLESSED LUCKIEST PERFECT WHOLE YEAR BUT ESPECIALLY ON YOUR BIRTHDAY🥺🫀✨💟💫😭I WISH,PRAY,DREAM THAT IN EVERY BIRTHDAY EVERY TIME EVERY YEAR SHOULD HAVE NORMALL PEACEFULL BEAUTIFULL WITHOUT PROMBLEM LIFE like you alwaysss wanteddddddd Pls god hehe anything for you YOU ACTUALLY DESERVE IT \n\nI love you more than uncountable for forever🧿🧿🧿🧿😝❣️🌀"
     };
 
     function blowCandle(num) {
       const candle = document.getElementById("c" + num);
+      if (!candle) return;
+
       candle.classList.add("blown");
 
-      // Open the wish card with unfold animation after short puff
+      // Smooth popup reveal
       setTimeout(() => {
-        document.getElementById("wishText").textContent = wishes[num];
-        document.getElementById("wishModal").classList.add("show");
-      }, 350);
+        const textField = document.getElementById("wishText");
+        const modal = document.getElementById("wishModal");
+
+        textField.textContent = wishes[num];
+        modal.classList.add("show");
+      }, 300);
     }
 
     function closeModal() {
-      document.getElementById("wishModal").classList.remove("show");
+      const modal = document.getElementById("wishModal");
+      if (modal) modal.classList.remove("show");
     }
 
-    // Floating festive balloons in the background
-    const balloons = ["🎈", "💖", "✨", "🎀", "🎉", "🌸"];
+    // High Visibility Floating Balloons
+    const festiveIcons = ["🎈", "🎈", "💖", "✨", "🎀", "🎉", "🎈", "🌸"];
     setInterval(() => {
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.textContent = balloons[Math.floor(Math.random() * balloons.length)];
-      b.style.left = (Math.random() * 90 + 5) + "vw";
-      b.style.fontSize = (22 + Math.random() * 20) + "px";
-      b.style.animationDuration = (5 + Math.random() * 4) + "s";
-      document.body.appendChild(b);
+      const el = document.createElement("div");
+      el.className = "balloon";
+      el.textContent = festiveIcons[Math.floor(Math.random() * festiveIcons.length)];
+      el.style.left = (Math.random() * 88 + 6) + "vw";
+      el.style.fontSize = (26 + Math.random() * 18) + "px";
+      el.style.animationDuration = (4.5 + Math.random() * 3.5) + "s";
+      document.body.appendChild(el);
 
       setTimeout(() => {
-        b.remove();
-      }, 9000);
-    }, 600);
+        el.remove();
+      }, 8500);
+    }, 450);
   </script>
 </body>
 </html>
