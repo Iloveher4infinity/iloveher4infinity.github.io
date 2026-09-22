@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>A Little Birthday Surprise 🎂</title>
+  <title>A Little Birthday Surprise 🎂✨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     * {
       margin: 0;
@@ -22,7 +21,7 @@
       position: relative;
     }
 
-    /* ==================== CAKE SCREEN ==================== */
+    /* CAKE SCREEN */
     #cake-screen {
       min-height: 100vh;
       display: flex;
@@ -60,13 +59,13 @@
       margin-top: 5px;
       font-size: 24px;
       font-weight: 700;
-      color: #d3799f;
+      color: #d2799f;
     }
 
     .sub-text {
       margin-top: 6px;
       font-size: 14px;
-      color: #b28c98;
+      color: #b25b80;
       margin-bottom: 15px;
     }
 
@@ -74,7 +73,7 @@
       width: min(280px, 75vw);
       max-height: 330px;
       object-fit: contain;
-      filter: drop-shadow(0 15px 25px rgba(255, 150, 190, 0.35));
+      filter: drop-shadow(0 15px 25px rgba(255, 150, 180, 0.35));
       animation: cakeFloat 3s ease-in-out infinite;
     }
 
@@ -89,7 +88,7 @@
       color: #b59aa3;
     }
 
-    /* ==================== BIRTHDAY SCREEN ==================== */
+    /* BIRTHDAY SCREEN */
     #birthday-screen {
       display: none;
       min-height: 100vh;
@@ -103,7 +102,7 @@
     }
 
     .birthday-title {
-      font-size: clamp(38px, 10vw, 55px);
+      font-size: clamp(28px, 7vw, 35px);
       font-weight: 900;
       line-height: 1.05;
       color: #df729d;
@@ -113,14 +112,15 @@
 
     .birthday-subtitle {
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 14px;
       color: #a77f8b;
     }
-    /* ==================== STICKER BOARD ==================== */
+
+    /* STICKER BOARD */
     .gifts-title {
       margin-top: 25px;
       font-size: 21px;
-      color: #d3799f;
+      color: #d2799f;
       font-weight: 700;
     }
 
@@ -155,7 +155,12 @@
     }
 
     .sticker:active {
-      transform: scale(0.88) !important;
+      transform: scale(0.85) !important;
+    }
+
+    .sticker:nth-child(7) {
+      grid-column: span 2;
+      margin: 8px auto 0 auto;
     }
 
     .sticker-img {
@@ -163,7 +168,7 @@
       height: 105px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 8px 14px rgba(230, 110, 150, 0.28));
+      filter: drop-shadow(0 8px 14px rgba(220, 110, 150, 0.28));
       transition: transform 0.25s ease;
     }
 
@@ -174,88 +179,33 @@
       color: #9f4b7a;
       letter-spacing: 0.3px;
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-    }
-
-    /* Exact Rotations Matching Your Screenshot */
-    .sticker-rot-1 { transform: rotate(8deg); }
-    .sticker-rot-2 { transform: rotate(-6deg); }
-    .sticker-rot-3 { transform: rotate(-3deg); }
-    .sticker-rot-4 { transform: rotate(7deg); }
-    .sticker-rot-5 { transform: rotate(4deg); }
-    .sticker-rot-6 { transform: rotate(-5deg); }
-
-    .sticker {
-      border: none;
-      background: transparent;
-      padding: 0;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .sticker:active {
-      transform: scale(0.9) !important;
-    }
-
-    /* BIG CUTE STICKER IMAGES */
-    .sticker-img {
-      width: 130px;
-      height: 130px;
-      max-width: 38vw;
-      max-height: 38vw;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 8px 16px rgba(230, 110, 150, 0.28));
-    }
-
-    /* Small cute text below each sticker */
-    .sticker-name {
-      margin-top: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #9f4b7a;
       white-space: nowrap;
     }
 
-    /* Angles matching your picture */
+    /* Rotations */
     .sticker-rot-1 { transform: rotate(7deg); }
-    .sticker-rot-2 { transform: rotate(-5deg); }
+    .sticker-rot-2 { transform: rotate(-3deg); }
     .sticker-rot-3 { transform: rotate(-4deg); }
     .sticker-rot-4 { transform: rotate(6deg); }
     .sticker-rot-5 { transform: rotate(4deg); }
-    .sticker-rot-6 { transform: rotate(-6deg); }
+    .sticker-rot-6 { transform: rotate(-5deg); }
 
-        /* ==================== FLOATING HEARTS ==================== */
+    /* FLOATING HEARTS */
     .heart {
       position: fixed;
       bottom: -40px;
       pointer-events: none;
       user-select: none;
       animation: heartFlyUp linear forwards;
-      z-index: 9999;
+      z-index: 8000;
       display: inline-block;
     }
 
     @keyframes heartFlyUp {
-      0% {
-        transform: translateY(0) scale(0.6) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.9;
-        transform: translateY(-50px) scale(1) rotate(5deg);
-      }
-      90% {
-        opacity: 0.85;
-      }
-      100% {
-        transform: translateY(-115vh) scale(1.1) rotate(25deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.9; transform: translateY(-50px) scale(1) rotate(5deg); }
+      90% { opacity: 0.85; }
+      100% { transform: translateY(-115vh) scale(1.1) rotate(25deg); opacity: 0; }
     }
   </style>
 </head>
@@ -267,9 +217,9 @@
   <!-- CAKE SCREEN -->
   <section id="cake-screen">
     <div class="countdown pop-anim" id="countdown">3</div>
-    <div class="blow-text">Blow in... 🕯️</div>
-    <div class="sub-text">Make a little heartly birthday wish first cutu💗</div>
-    <img src="Cake.png" class="cake" alt="Birthday cake" />
+    <div class="blow-text">Blow in...</div>
+    <div class="sub-text">Make a little heartily birthday wish first cutu💗</div>
+    <img src="cake.png" class="cake" alt="Birthday Cake" />
     <div class="blow-hint">get readyyy my love...</div>
   </section>
 
@@ -279,17 +229,17 @@
       HAPPIEST<br />BIRTHDAYYY 🎂
     </div>
     <div class="birthday-subtitle">
-      May your everyday be as loveliest as your smilee 💗✨
+      May your everyday be as loveliest as your smiles 💗
     </div>
 
     <div class="gifts-title">
       A few little surprises for miss everything 🎀
     </div>
     <div class="gifts-subtitle">
-      Tap one... lets see what is you getting yaayy 👀
+      Tap one... lets see what is you getting yaayy ^^
     </div>
 
-    <!-- STICKER BOARD -->
+    <!-- STICKER BOARD (All 7 Surprises) -->
     <div class="sticker-board">
       <button class="sticker sticker-rot-1" onclick="openPage('blessing.html')">
         <img src="blessing.png" alt="You My Blessing" class="sticker-img" />
@@ -320,44 +270,46 @@
         <img src="memory.png" alt="Memory" class="sticker-img" />
         <span class="sticker-name">Memory 🧸</span>
       </button>
+
+      <!-- 7th Button: Grand Ending Page -->
+      <button class="sticker sticker-rot-1" onclick="openPage('ending.html')">
+        <img src="ending.png" alt="Ending" class="sticker-img" onerror="this.src='gift.png'" />
+        <span class="sticker-name">Forever Maya 💍✨</span>
+      </button>
     </div>
   </section>
 
   <script>
-    // --- 1. Audio Handler ---
+    // 1. Audio Handler
     const birthdayMusic = document.getElementById("birthday-music");
     if (birthdayMusic) {
-      birthdayMusic.volume = 0.12;
+      birthdayMusic.volume = 0.72;
       birthdayMusic.play().catch(() => {
         document.addEventListener("click", () => {
           birthdayMusic.play();
         }, { once: true });
       });
     }
-    
-        // --- 2. Countdown Engine & Return Detection ---
+
+    // 2. Countdown Engine & Return Detection
     const countdownEl = document.getElementById("countdown");
     const cakeScreen = document.getElementById("cake-screen");
     const birthdayScreen = document.getElementById("birthday-screen");
 
-    // Check if coming back from blessing.html
     const urlParams = new URLSearchParams(window.location.search);
     const returningFromSurprise = urlParams.get("from");
 
     if (returningFromSurprise) {
-      // Instantly skip cake and countdown
       cakeScreen.style.display = "none";
       birthdayScreen.style.display = "block";
       birthdayScreen.style.opacity = "1";
       createHearts();
     } else {
-      // First-time visit: play the normal countdown
       const numbers = ["3", "2", "1", "🎉"];
       let index = 0;
 
       const countdownTimer = setInterval(() => {
         index++;
-
         if (index < numbers.length) {
           countdownEl.classList.remove("pop-anim");
           void countdownEl.offsetWidth;
@@ -365,49 +317,45 @@
           countdownEl.classList.add("pop-anim");
         } else {
           clearInterval(countdownTimer);
-
           setTimeout(() => {
             cakeScreen.style.opacity = "0";
-
             setTimeout(() => {
               cakeScreen.style.display = "none";
               birthdayScreen.style.display = "block";
               birthdayScreen.style.opacity = "1";
               createHearts();
             }, 700);
-          }, 600);
+          }, 650);
         }
       }, 1000);
     }
 
-  function createHearts() {
-  const heartIcons = ["💖", "💗", "🌸", "✨", "🤍", "🎀", "✨", "💕"];
-  
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-    
-    // Spread across the entire width of the phone (3% to 92%)
-    const randomLeft = Math.floor(Math.random() * 89) + 3;
-    heart.style.left = randomLeft + "vw";
-    
-    // Random sizes and floating speeds
-    const randomDuration = (3.5 + Math.random() * 3).toFixed(1);
-    heart.style.animationDuration = randomDuration + "s";
-    heart.style.fontSize = (16 + Math.floor(Math.random() * 12)) + "px";
-    
-    document.body.appendChild(heart);
+    // 3. Floating Hearts Animation
+    function createHearts() {
+      const heartIcons = ["💖", "💗", "🌸", "⭐", "💕", "🎀", "✨", "💓"];
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        const randomLeft = Math.floor(Math.random() * 89) + 5;
+        heart.style.left = randomLeft + "vw";
 
-    setTimeout(() => {
-      heart.remove();
-    }, 6500);
-  }, 350);
-  }
-    // --- 4. Navigation ---
+        const randomDuration = (3.5 + Math.random() * 3).toFixed(1);
+        heart.style.animationDuration = randomDuration + "s";
+        heart.style.fontSize = (16 + Math.floor(Math.random() * 12)) + "px";
+
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 6500);
+      }, 350);
+    }
+
+    // 4. Navigation
     function openPage(pageUrl) {
       window.location.href = pageUrl;
     }
   </script>
 </body>
-</html>
+  </html>
+  
