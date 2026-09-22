@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happiest Birthday Forever My Maya 💍✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 20%, #ffe4f2 0%, #ffd0ea 40%, #fcaed7 80%, #f794c8 100%);
+      font-family: 'Quicksand', sans-serif;
+      color: #580a52;
+      text-align: center;
+      padding: 16px 12px 80px 12px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Top Navigation */
+    .top-bar {
+      max-width: 550px;
+      margin: 0 auto 12px auto;
+      text-align: left;
+      position: relative;
+      z-index: 30;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 2px solid #ff4081;
+      background: rgba(255, 255, 255, 0.95);
+      color: #df4d88;
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(255, 120, 160, 0.28);
+      transition: transform 0.2s ease;
+    }
+
+    .back-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Main Container */
+    .ending-card-stage {
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* Top Cute Header Badge */
+    .top-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      background: linear-gradient(135deg, #ff4081, #d81b60);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: 999px;
+      box-shadow: 0 4px 15px rgba(216, 27, 96, 0.35);
+      margin-bottom: 12px;
+      animation: pulseGlow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1); box-shadow: 0 4px 15px rgba(216, 27, 96, 0.35); }
+      100% { transform: scale(1.05); box-shadow: 0 6px 22px rgba(255, 64, 129, 0.6); }
+    }
+
+    /* Crown / Halo icon */
+    .crown-icon {
+      font-size: 34px;
+      margin-bottom: 4px;
+      display: inline-block;
+      animation: gentleBob 2.5s infinite ease-in-out alternate;
+    }
+
+    @keyframes gentleBob {
+      0% { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-8px) rotate(3deg); }
+    }
+
+    .ending-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(28px, 7.5vw, 40px);
+      font-weight: 700;
+      color: #ad1457;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8), 0 4px 18px rgba(216, 27, 96, 0.25);
+      margin-bottom: 14px;
+    }
+
+    /* The Glowing Romantic Parchment Card */
+    .parchment-letter-box {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 28px;
+      padding: 26px 20px 30px 20px;
+      box-shadow: 0 20px 50px rgba(180, 20, 80, 0.28), 0 0 0 6px rgba(255, 255, 255, 0.8);
+      position: relative;
+      border: 2px dashed #ff80ab;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    /* Top Corner Decorative Ribbons */
+    .ribbon-decor-left {
+      position: absolute;
+      top: -8px;
+      left: 18px;
+      font-size: 26px;
+    }
+
+    .ribbon-decor-right {
+      position: absolute;
+      top: -8px;
+      right: 18px;
+      font-size: 26px;
+    }
+
+    /* The Main Ending Love Text */
+    .ending-letter-content {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 700;
+      color: #6a0045;
+      white-space: pre-line;
+      word-break: break-word;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Highlighted lines inside the letter */
+    .heart-sign {
+      display: block;
+      margin-top: 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #d81b60;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Seal Forever Button */
+    .seal-btn-wrap {
+      margin-top: 24px;
+      text-align: center;
+      position: relative;
+      z-index: 25;
+    }
+
+    .seal-btn {
+      background: linear-gradient(135deg, #ff4081 0%, #e91e63 50%, #c2185b 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.45), 0 0 0 4px rgba(255, 255, 255, 0.7);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .seal-btn:active {
+      transform: scale(0.93);
+      box-shadow: 0 4px 14px rgba(233, 30, 99, 0.35);
+    }
+
+    /* Floating Confetti Particle */
+    .confetti-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 24px;
+      animation: explode 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+      100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.4) rotate(var(--rot)); opacity: 0; }
+    }
+
+    /* Ambient Floating Icons */
+    .ambient-icon {
+      position: fixed;
+      bottom: -40px;
+      font-size: 22px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.65;
+      animation: floatSky linear forwards;
+    }
+
+    @keyframes floatSky {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.7; }
+      85% { opacity: 0.7; }
+      100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+    }
+
+    /* Sealed Confirmation Banner */
+    .sealed-alert {
+      display: none;
+      margin-top: 16px;
+      background: #ffffff;
+      border: 2px dashed #ff4081;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ad1457;
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.2);
+      animation: alertPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes alertPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <div class="top-bar">
+    <a href="hold.html?from=ending" class="back-btn">⬅ Back to Surprises 🎂</a>
+  </div>
+
+  <div class="ending-card-stage">
+
+    <div class="top-badge">👑 For My One & Only Queen 🧿✨</div>
+    <div class="crown-icon">👑</div>
+    <h1 class="ending-title">Happiest Birthday Forever, Maya</h1>
+
+    <!-- Glowing Parchment Card -->
+    <div class="parchment-letter-box">
+      <div class="ribbon-decor-left">🎀</div>
+      <div class="ribbon-decor-right">🎀</div>
+
+      <!-- Exact Text Preserved Fully -->
+      <div class="ending-letter-content">
+once againn happiestestestestesttt wala birthday to you,
+Thanku so much for being born jii 
+Thankuu so sooop much for existing ani being my favorite hehee YOU SUCH A LUCKIEST BLESSINGS IM SO SOOOO MUCHHH GREATFULL TO HAVE YOUUUHEHEHEE 
+Jii🤭😝🌀💕jii Foreverbe with me haii love me You actually are enough ani well deserving mayaa you so enough for me when i have u i dont even need to breath hehehe😁🌸🌀your love your existence your hardwork your efforts you care all enough 
+Im so sooooo much happiee for your brith yayayayayaaaaaa muwaah FOREVER LOVE ME LIKE THIS ANI MARRY ME HAII
+I ALSOO PROMISE TO LOVE YOU ANI GET EXCITED FOR YOUR EVERYTHINGG 
+Because you are my everything hehehehee FOREVERUSBLESSEDALIVEMARRIEDTOGETHER YAAAAA
+WSO HAPPIEEEEEEEEEEEEHHAHA....🧿🧿🧿🧿😝😁💕🌸🌀
+      </div>
+
+      <div class="heart-sign">
+        — Yours & only yours forever, wifey 🫀💍♾️
+      </div>
+    </div>
+
+    <!-- Interactive Seal Button -->
+    <div class="seal-btn-wrap">
+      <button class="seal-btn" onclick="sealOurLove(event)">
+        <span>Seal Our Forever With a Kiss 💋💍</span>
+      </button>
+
+      <div class="sealed-alert" id="sealedAlert">
+        💍✨ PROMISE SEALED ACROSS INFINITY AND BEYOND! YOU & ME FOREVER! 🧿🫀
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function sealOurLove(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+
+      // Burst rings, hearts, kisses & confetti
+      spawnCelebration(originX, originY);
+
+      // Show the sealed confirmation
+      const alertBox = document.getElementById("sealedAlert");
+      alertBox.style.display = "block";
+
+      // Extra bursts across the screen
+      setTimeout(() => spawnCelebration(window.innerWidth * 0.25, window.innerHeight * 0.4), 250);
+      setTimeout(() => spawnCelebration(window.innerWidth * 0.75, window.innerHeight * 0.4), 450);
+    }
+
+    function spawnCelebration(x, y) {
+      const icons = ["💍", "💋", "💖", "✨", "🌸", "🧿", "🎉", "🌹", "🤍", "⭐"];
+      for (let i = 0; i < 35; i++) {
+        const p = document.createElement("div");
+        p.className = "confetti-particle";
+        p.textContent = icons[Math.floor(Math.random() * icons.length)];
+        p.style.left = x + "px";
+        p.style.top = y + "px";
+
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 220 + 80;
+        const tx = Math.cos(angle) * velocity + "px";
+        const ty = Math.sin(angle) * velocity + "px";
+        const rot = (Math.random() * 360 - 180) + "deg";
+
+        p.style.setProperty("--tx", tx);
+        p.style.setProperty("--ty", ty);
+        p.style.setProperty("--rot", rot);
+
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 1400);
+      }
+    }
+
+    // Ambient Floating Elements
+    const ambientIcons = ["💖", "🌸", "✨", "💍", "🌹", "🤍", "🧿"];
+    setInterval(() => {
+      const a = document.createElement("div");
+      a.className = "ambient-icon";
+      a.textContent = ambientIcons[Math.floor(Math.random() * ambientIcons.length)];
+      a.style.left = (Math.random() * 92 + 4) + "vw";
+      a.style.fontSize = (Math.random() * 14 + 18) + "px";
+      a.style.animationDuration = (Math.random() * 3.5 + 4) + "s";
+      document.body.appendChild(a);
+
+      setTimeout(() => a.remove(), 8000);
+    }, 600);
+  </script>
+</body>
+  </html>
+  
