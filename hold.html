@@ -212,8 +212,8 @@
 <body>
 
   <!-- Audio Player (Song 2) -->
-  <audio id="birthday-music" src="birthday-song.mp3" loop></audio>
-
+<audio id="birthday-music" src="birthday-song.mp3" loop preload="auto"></audio>
+  
   <!-- CAKE SCREEN -->
   <section id="cake-screen">
     <div class="countdown pop-anim" id="countdown">3</div>
@@ -280,16 +280,24 @@
   </section>
 
   <script>
-    // 1. Audio Handler
-    const birthdayMusic = document.getElementById("birthday-music");
-    if (birthdayMusic) {
-      birthdayMusic.volume = 0.72;
-      birthdayMusic.play().catch(() => {
-        document.addEventListener("click", () => {
-          birthdayMusic.play();
-        }, { once: true });
-      });
-    }
+// 1. Audio Handler (Continuous Loop + Mobile Touch Unlock)
+const birthdayMusic = document.getElementById("birthday-music");
+if (birthdayMusic) {
+  birthdayMusic.loop = true;
+  birthdayMusic.volume = 0.75;
+  const playPromise = birthdayMusic.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      const startBGM = () => {
+        birthdayMusic.play();
+        document.removeEventListener("touchstart", startBGM);
+        document.removeEventListener("click", startBGM);
+      };
+      document.addEventListener("touchstart", startBGM, { once: true });
+      document.addEventListener("click", startBGM, { once: true });
+    });
+  }
+}
 
     // 2. Countdown Engine & Return Detection
     const countdownEl = document.getElementById("countdown");
