@@ -134,7 +134,31 @@
   </style>
 </head>
 <body>
+<!-- Infinite Loop Audio Player -->
+<audio id="page-music" src="letter-song.mp3" loop preload="auto"></audio>
 
+<script>
+  (function() {
+    const audio = document.getElementById("page-music");
+    if (audio) {
+      audio.loop = true;
+      audio.volume = 0.8;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const startAudio = () => {
+            audio.play();
+            document.removeEventListener("touchstart", startAudio);
+            document.removeEventListener("click", startAudio);
+          };
+          document.addEventListener("touchstart", startAudio, { once: true });
+          document.addEventListener("click", startAudio, { once: true });
+        });
+      }
+    }
+  })();
+</script>
+  
   <!-- Top Bar -->
   <div class="top-bar">
     <a href="hold.html?from=letter" class="back-btn">⬅ Back to Surprises 🎂</a>
