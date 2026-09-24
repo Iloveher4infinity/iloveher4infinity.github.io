@@ -244,7 +244,31 @@
   </style>
 </head>
 <body>
+<!-- Infinite Loop Audio Player -->
+<audio id="page-music" src="flower-song.mp3" loop preload="auto"></audio>
 
+<script>
+  (function() {
+    const audio = document.getElementById("page-music");
+    if (audio) {
+      audio.loop = true;
+      audio.volume = 0.8;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const startAudio = () => {
+            audio.play();
+            document.removeEventListener("touchstart", startAudio);
+            document.removeEventListener("click", startAudio);
+          };
+          document.addEventListener("touchstart", startAudio, { once: true });
+          document.addEventListener("click", startAudio, { once: true });
+        });
+      }
+    }
+  })();
+</script>
+  
   <!-- Top Navigation & Counter -->
   <div class="top-bar">
     <a href="hold.html?from=flower" class="back-btn">⬅ Back to Surprises 🌸</a>
